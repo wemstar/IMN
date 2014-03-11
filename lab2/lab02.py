@@ -33,6 +33,13 @@ def iterationEuelera(function, ran, dt, t0):
         u.append(t0 + function(0.01, u[-1], 0.01) * 0.01)
     return u
 
+def newton(function,ran,dt,t0,n):
+    u = [t0]
+    umi=[t0]
+    for x in ran:
+        u.append(t0 + function(0.01, u[-1], 0.01) * 0.01)
+    return u
+
 
 def trapez(function, ran, dt, t0):
     u = [t0]
@@ -72,6 +79,15 @@ def lab02Z1(fileName, method, function, functionRoz, start, end, dt, u0):
         for x, y, z in zip(ran, u, dok):
             file1.write("{0} {1} {2} {3}\n".format(x, y, z, z - y))
 
+def lab02Z4(fileName,method,function,functionRoz,dt,u0,n):
+    with open(fileName, "w") as file1:
+        ran = range(0,n)
+        u = method(function, ran, dt, u0)
+        dok = [functionRoz(dt, 0) for t in ran]
+        for x, y, z in zip(ran, u, dok):
+            file1.write("{0} {1} {2} {3}\n".format(x, y, z, z - y))
+
+
 
 def drange(start, stop, step):
     a = []
@@ -102,7 +118,7 @@ def main():
     for file, step in zip(fileNames3, steps3):
         lab02Z1(file, complicateEuera2, function3, function2Roz, 0, 10, step, 9.5)
     #Zadanie 4
-    lab02Z1("File13", iterationEuelera, function2, function2Roz, 0, 5, 1, 9.5)
+    lab02Z4("File13", iterationEuelera, function2, function2Roz, 0.01, 9.5,5)
 
 
 main()

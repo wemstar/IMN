@@ -50,4 +50,4 @@ plot 'File8' u 1:4 w l title '0.01','File9' u 1:4 w l title '0.1','File10' u 1:4
 
 set autoscale y
 set output 'Z04a.jpg'
-plot 'File13' u 1:2 w lp title 'numerycznie'
+plot 'File13' u 1:2 w lp title 'numerycznie','' u 1:3 w l title 'analitycznie'
