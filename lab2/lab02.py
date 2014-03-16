@@ -85,7 +85,7 @@ def pochodna2(function, t, u, dt, du):
     return (function(t, u + du, dt) - function(t, u - du, dt)) / (2 * du)
 
 
-#równania różniczkowe
+#RR
 def function1(t, u, dt):
     return 32 * t - 4
 

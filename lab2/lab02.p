@@ -10,7 +10,7 @@ set output 'Z01c.jpg'
 plot 'File3.txt' u 1:2 w p title 'numerycznie','' u 1:3 w l title 'analitycznie'
 
 set output 'Z01d.jpg'
-plot 'File1.txt' u 1:4 w p title 'jawnie','File2.txt' u 1:4 w p title 'niejawnie','File3.txt' u 1:4 w p title 'trapezów',
+plot 'File1.txt' u 1:4 w p title 'jawnie','File2.txt' u 1:4 w p title 'niejawnie','File3.txt' u 1:4 w p title 'trapezów'
 
 #Zadanie 2
 
