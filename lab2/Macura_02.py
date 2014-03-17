@@ -54,7 +54,7 @@ def newtonIter(function, ran, dt, t0):
     u = [t0]
     umi = [t0]
     for x in ran:
-        u.append(u[-1] - (u[-1] - t0 - dt * function(dt, u[-1], dt)) / (1 - pochodna1(function, dt, u[-1], dt, 0.1)))
+        u.append(u[-1] - (u[-1] - t0 - dt * function(dt, u[-1], dt)) / (1 - pochodna2(function, dt, u[-1], dt, 0.1)))
     return u
 
 def newtonIter3(function, ran, dt, t0):
@@ -102,7 +102,7 @@ def function6(t, u, dt):
     return u * (u - 1) * (u - 2)
 
 
-#rozwiązanie funkcji
+#RF
 def function1Roz(t, u):
     return 16 * t ** 2 - 4 * t + 7.5
 
@@ -117,8 +117,15 @@ def lab02Z1(fileName, method, function, functionRoz, start, end, dt, u0):
         u = method(function, ran, dt, u0)
         dok = [functionRoz(t, 0) for t in ran]
         for x, y, z in zip(ran, u, dok):
-            file1.write("{0} {1} {2} {3}\n".format(x, y, z, z - y))
-
+            file1.write("{0:0.12f} {1:0.12f} {2:0.12f} {3:0.12f}\n".format(x, y, z, z - y))
+def lab02Z1A(fileName):
+    with open(fileName,"w") as fp:
+        for x in range(4,-1,-1):
+            dt=2**(-x)
+            ran=drange(0,10,dt)
+            dok=function1Roz(10, 0) 
+            u=simpleEuera(function1,ran,dt,7.5)
+            fp.write("{0:0.12f} {1:0.12f}\n".format(dt,u[-1]-dok))
 
 def lab02Z4(fileName, method, function, functionRoz, dt, u0, n):
     with open(fileName, "w") as file1:
@@ -126,7 +133,7 @@ def lab02Z4(fileName, method, function, functionRoz, dt, u0, n):
         u = method(function, ran, dt, u0)
         dok = [functionRoz(dt, 0) for t in ran]
         for x, y, z in zip(ran, u, dok):
-            file1.write("{0} {1} {2} {3}\n".format(x, y, z, z - y))
+            file1.write("{0:0.12f} {1:0.12f} {2:0.12f} {3:0.12f}\n".format(x, y, z, z - y))
 
 
 def lab02Z8(fileName, method, function, functionRoz, start, koniec, krok, u0, iloscIteracji, du):
@@ -135,7 +142,7 @@ def lab02Z8(fileName, method, function, functionRoz, start, koniec, krok, u0, il
         u = method(function, ran, krok, u0, iloscIteracji, du)
         dok = [functionRoz(t, 0) for t in ran]
         for x, y, z in zip(ran, u, dok):
-            fp.write("{0} {1} {2} {3}\n".format(x, y, z, z - y))
+            fp.write("{0:0.12f} {1:0.12f} {2:0.12f} {3:0.12f}\n".format(x, y, z, z - y))
 
 
 def drange(start, stop, step):
@@ -154,6 +161,7 @@ def main():
     for file, method in zip(fileNames, methodList):
         lab02Z1(file, method, function1, function1Roz, 0, 60, 1.5, 7.5)
 
+    lab02Z1A("File20.txt")
     # Zadanie 2
     fileNames2 = ("File4.txt", "File5.txt", "File6.txt", "File7.txt")
     steps = (0.01, 0.1, 0.25, 0.27)
@@ -170,7 +178,7 @@ def main():
     fileNames4 = ("File13.txt", "File14.txt", "File15.txt")
     steps4 = (0.01, 0.125, 0.13)
     for file, step in zip(fileNames4, steps4):
-        lab02Z4(file, iterationEuelera, function2, function2Roz, step, 9.5, 5)
+        lab02Z4(file, iterationEuelera, function2, function2Roz, step, 9.5, 100)
 
     #Zadanie 5
     lab02Z4("File16.txt", newtonIter, function2, function2Roz, 1.33, 9.5, 15)
