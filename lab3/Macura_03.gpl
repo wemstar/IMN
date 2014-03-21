@@ -1,11 +1,20 @@
 set terminal jpeg
-
 #Zadanie 1
 
 set output 'Z01a.jpg'
-
-plot 'Zadanie1a.txt'  u 1:2 w lp title 'Euera','' u 1:3 w lp title 'RK2','Zadanie1b.txt'  u 1:2 w lp title 'Euera Rich','' u 1:3 w lp title 'RK2 Rich'
+set title 'Zad. 1) e(t): porównanie metod'
+plot 'Zadanie1a.txt'  u 1:2 w lp pt 7 title 'Euera','' u 1:3 w lp pt 7 title 'RK2','Zadanie1b.txt'  u 1:2 w lp pt 7 title 'Euera + ekstr.','' u 1:3 w lp pt 7 title 'RK2 + ekstr.'
 
 set output 'Z01b.jpg'
 set yrange [0:0.06]
-plot 'Zadanie1a.txt'  u 1:2 w lp title 'Euera','' u 1:3 w lp title 'RK2','Zadanie1b.txt'  u 1:2 w lp title 'Euera Rich','' u 1:3 w lp title 'RK2 Rich'
+set title 'Zad. 1) e(t): porównanie metod - zbliżenie'
+plot 'Zadanie1a.txt'  u 1:2 w lp pt 7 title 'Euera','' u 1:3 w lp pt 7 title 'RK2','Zadanie1b.txt'  u 1:2 w lp pt 7 title 'Euera + ekstr.','' u 1:3 w lp pt 7 title 'RK2 + ekstr.'
+
+#Zadanie2
+
+set autoscale y
+set output'Z02a.jpg'
+set title 'Zad 2.2) Krzywa V(x) dla tol=10^-1'
+set xlabel 'x'
+set ylabel 'V(x)'
+plot 'Zadanie2.txt' u 1:2 w lp pt 7
