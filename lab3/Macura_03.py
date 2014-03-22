@@ -4,19 +4,19 @@ __author__ = 'wemstar'
 
 
 def simpleEuera(function, pu, t, dt):
-    return pu + dt * function(t, pu)
+    return pu + dt * function(t-dt, pu)
 
 
 def RK2(function, pu, t, dt):
-    k1 = function(t,pu)
-    k2 = function(t+dt, pu + dt * k1)
+    k1 = function(t-dt,pu)
+    k2 = function(t, pu + dt * k1)
     return pu + 0.5 * dt * (k1 + k2)
 
 
 def iterate(method, function, ran, dt, y0):
     y = [y0]
     for t in ran:
-        y.append(method(function, y[-1], t, dt))
+        y.append(method(function, y[-1], t+dt, dt))
     return y
 
 
@@ -33,7 +33,7 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
         e1=error(u11,u21,3)
         e2=error(u12,u22,3)
         er=max(e1,e2);
-        dt=((s*tol)/(abs(er)))**(1/3)*dt
+        dt *= ((s * tol) / (abs(er))) ** (1 / 3)
 
 
         if(er<tol):
