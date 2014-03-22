@@ -1,5 +1,6 @@
 from math import exp, pi
 from subprocess import call
+import numpy as np
 __author__ = 'wemstar'
 class PointZad2:
     X=float()
@@ -43,6 +44,25 @@ def RK2(function, pu, t, dt):
     k1 = function(t-dt,pu)
     k2 = function(t, pu + dt * k1)
     return pu + 0.5 * dt * (k1 + k2)
+def RK4(function1, function2, pt, pu1, pu2, dt):
+    k11=function1(pt,pu1,pu2)
+    k21=function2(pt,pu1,pu2)
+
+    k12=function1(pt+0.5*dt,pu1+0.5*dt*k11,pu2+0.5*dt*k21)
+    k22=function2(pt+0.5*dt,pu1+0.5*dt*k11,pu2+0.5*dt*k21)
+
+    k13=function1(pt+0.5*dt,pu1+0.5*dt*k12,pu2+0.5*dt*k22)
+    k23=function2(pt+0.5*dt,pu1+0.5*dt*k12,pu2+0.5*dt*k22)
+
+    k14=function1(pt+0.5*dt,pu1+0.5*dt*k13,pu2+0.5*dt*k23)
+    k24=function2(pt+0.5*dt,pu1+0.5*dt*k13,pu2+0.5*dt*k23)
+
+    u1=pu1+dt/6.0*(k11+2*k12+2*k13+k14)
+    u2=pu2+dt/6.0*(k21+2*k22+2*k23+k24)
+
+    return u1,u2
+
+
 
 
 def iterate(method, function, ran, dt, y0):
@@ -94,6 +114,20 @@ def lab3Zadanie2():
     files=("Zadanie2.txt","Zadanie2.1.txt","Zadanie2.2.txt")
     for file,tol in zip(files,tols):
         ru= iterateEquasion(RK2Eauasion, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, tol)
+        with open(file, "w") as fp:
+            for u1 in ru:
+                fp.write("{0.X:0.12f} {0.V:0.12f} {0.e:0.12f} {0.DT:0.12f} {0.t:0.12f} {0.X2:0.12f} {0.V2:0.12f}\n".format(u1))
+
+def lab3Zadanie3():
+    v0 = 1
+    x0 = 0
+    S = 0.75
+    start = 0.0
+    end = 24.0
+    tols = (10.0 ** (-1), 10.0 ** (-4), 10.0 ** (-6))
+    files=("Zadanie3.1.txt","Zadanie3.2.txt","Zadanie3.3.txt")
+    for file,tol in zip(files,tols):
+        ru= iterateEquasion(RK4, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, tol)
         with open(file, "w") as fp:
             for u1 in ru:
                 fp.write("{0.X:0.12f} {0.V:0.12f} {0.e:0.12f} {0.DT:0.12f} {0.t:0.12f} {0.X2:0.12f} {0.V2:0.12f}\n".format(u1))
@@ -173,6 +207,7 @@ def main():
     RK2.n = 3
     lab3Zadanie1()
     lab3Zadanie2()
+    lab3Zadanie3()
     call(["gnuplot","Macura_03.gpl"])
 
 
