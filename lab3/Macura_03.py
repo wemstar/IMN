@@ -1,6 +1,38 @@
 from math import exp, pi
 from subprocess import call
 __author__ = 'wemstar'
+class PointZad2:
+    X=float()
+    V=float()
+    DT=float()
+    t=float()
+    @property
+    def x(self):
+        return self.X
+    @x.setter
+    def x(self,value):
+        self.X=value
+    @property
+    def v(self):
+        return self.V
+    @v.setter
+    def v(self,value):
+        self.V=value
+    @property
+    def e(self):
+        return (self.V**2+self.X**2)*0.5
+    @property
+    def dt(self):
+        return self.DT
+    @dt.setter
+    def dt(self,value):
+        self.DT=value
+    @property
+    def V2(self):
+        return self.v**2
+    @property
+    def X2(self):
+        return self.x**2
 
 
 def simpleEuera(function, pu, t, dt):
@@ -21,13 +53,18 @@ def iterate(method, function, ran, dt, y0):
 
 
 def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, tol):
-    pu1 = [f10]
-    pu2 = [f20]
+    p0=PointZad2()
+    p0.x=f10
+    p0.v=f20
+    p0.dt=dts
+
+    pu = [p0]
+
     t = start
     dt=dts
     while t < end:
-        u11, u12 = method(function1, function2, t+dt , pu1[-1], pu2[-1],  dt)
-        u21, u22 = method(function1, function2, t +0.5*dt, pu1[-1], pu2[-1],  0.5*dt)
+        u11, u12 = method(function1, function2, t+dt , pu[-1].x, pu[-1].V,  dt)
+        u21, u22 = method(function1, function2, t +0.5*dt, pu[-1].x, pu[-1].v,  0.5*dt)
         u21, u22 = method(function1, function2, t +dt, u21, u22,  0.5*dt)
 
         e1=error(u11,u21,3)
@@ -38,9 +75,13 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
 
         if(er<tol):
             t +=  dt
-            pu1.append(u21)
-            pu2.append(u22)
-    return pu1, pu2
+            p=PointZad2()
+            p.x=u21
+            p.V=u22
+            p.dt=dt
+            p.t=t
+            pu.append(p)
+    return pu
 
 
 def lab3Zadanie2():
@@ -50,10 +91,12 @@ def lab3Zadanie2():
     start = 0.0
     end = 24.0
     tols = (10.0 ** (-1), 10.0 ** (-4), 10.0 ** (-6))
-    ru1, ru2 = iterateEquasion(RK2Eauasion, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, tols[0])
-    with open("Zadanie2.txt", "w") as fp:
-        for u1, u2 in zip(ru1, ru2):
-            fp.write("{0:0.12f} {1:0.12f}\n".format(u1, u2))
+    files=("Zadanie2.txt","Zadanie2.1.txt","Zadanie2.2.txt")
+    for file,tol in zip(files,tols):
+        ru= iterateEquasion(RK2Eauasion, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, tol)
+        with open(file, "w") as fp:
+            for u1 in ru:
+                fp.write("{0.X:0.12f} {0.V:0.12f} {0.e:0.12f} {0.DT:0.12f} {0.t:0.12f} {0.X2:0.12f} {0.V2:0.12f}\n".format(u1))
 
 
 def richardson(method, function, ran, dt, y0):
@@ -77,7 +120,6 @@ def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
 
     k12 = function1(pt + dt, pu1 + dt * k11, pu2 + dt * k21)
     k22 = function2(pt + dt, pu1 + dt * k11, pu2 + dt * k21)
-
     u1 = pu1 + dt / 2.0 * k11 + dt / 2.0 * k12
     u2 = pu2 + dt / 2.0 * k21 + dt / 2.0 * k22
     return u1, u2
