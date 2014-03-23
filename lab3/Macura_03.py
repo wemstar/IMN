@@ -1,6 +1,6 @@
 from math import exp, pi
 from subprocess import call
-import numpy as np
+
 __author__ = 'wemstar'
 class PointZad2:
     X=float()
@@ -21,7 +21,7 @@ class PointZad2:
         self.V=value
     @property
     def e(self):
-        return (self.V**2+self.X**2)*0.5
+        return (self.X2+self.V2)*0.5
     @property
     def dt(self):
         return self.DT
@@ -54,11 +54,11 @@ def RK4(function1, function2, pt, pu1, pu2, dt):
     k13=function1(pt+0.5*dt,pu1+0.5*dt*k12,pu2+0.5*dt*k22)
     k23=function2(pt+0.5*dt,pu1+0.5*dt*k12,pu2+0.5*dt*k22)
 
-    k14=function1(pt+0.5*dt,pu1+0.5*dt*k13,pu2+0.5*dt*k23)
-    k24=function2(pt+0.5*dt,pu1+0.5*dt*k13,pu2+0.5*dt*k23)
+    k14=function1(pt+dt,pu1+dt*k13,pu2+dt*k23)
+    k24=function2(pt+dt,pu1+dt*k13,pu2+dt*k23)
 
-    u1=pu1+dt/6.0*(k11+2*k12+2*k13+k14)
-    u2=pu2+dt/6.0*(k21+2*k22+2*k23+k24)
+    u1=pu1+dt/6.0*(k11+2.0*k12+2.0*k13+k14)
+    u2=pu2+dt/6.0*(k21+2.0*k22+2.0*k23+k24)
 
     return u1,u2
 
@@ -79,7 +79,7 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
     p0.dt=dts
 
     pu = [p0]
-
+    n=method.n
     t = start
     dt=dts
     while t < end:
@@ -87,10 +87,10 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
         u21, u22 = method(function1, function2, t +0.5*dt, pu[-1].x, pu[-1].v,  0.5*dt)
         u21, u22 = method(function1, function2, t +dt, u21, u22,  0.5*dt)
 
-        e1=error(u11,u21,3)
-        e2=error(u12,u22,3)
+        e1=error(u11,u21,n)
+        e2=error(u12,u22,n)
         er=max(e1,e2);
-        dt *= ((s * tol) / (abs(er))) ** (1 / 3)
+        dt *= ((s * tol) / (abs(er))) ** (1 / n)
 
 
         if(er<tol):
@@ -98,7 +98,7 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
             p=PointZad2()
             p.x=u21
             p.V=u22
-            p.dt=dt
+            p.dt=dt/2.0
             p.t=t
             pu.append(p)
     return pu
@@ -127,7 +127,7 @@ def lab3Zadanie3():
     tols = (10.0 ** (-1), 10.0 ** (-4), 10.0 ** (-6))
     files=("Zadanie3.1.txt","Zadanie3.2.txt","Zadanie3.3.txt")
     for file,tol in zip(files,tols):
-        ru= iterateEquasion(RK4, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, tol)
+        ru= iterateEquasion(RK4, function1Zad2, function2Zad2, start, end, 0.01, S, x0, v0, tol)
         with open(file, "w") as fp:
             for u1 in ru:
                 fp.write("{0.X:0.12f} {0.V:0.12f} {0.e:0.12f} {0.DT:0.12f} {0.t:0.12f} {0.X2:0.12f} {0.V2:0.12f}\n".format(u1))
@@ -205,6 +205,8 @@ def drange(start, stop, step):
 def main():
     simpleEuera.n = 2
     RK2.n = 3
+    RK2Eauasion.n=3
+    RK4.n=5
     lab3Zadanie1()
     lab3Zadanie2()
     lab3Zadanie3()
