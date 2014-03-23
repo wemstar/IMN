@@ -17,39 +17,47 @@ set output'Z02a.jpg'
 set title 'Zad 2.1) Krzywa V(x) dla tol=10^-1'
 set xlabel 'x'
 set ylabel 'V(x)'
-plot 'Zadanie2.txt' u 1:2 w lp pt 7
+unset key
+plot 'Zadanie2.txt' u 1:2 w l
+set key
 
 set output'Z02b.jpg'
 set title 'Zad 2.2) Zależność energii dla tol=10 -1'
 set xlabel 'x'
 set ylabel 'E(x)'
-plot 'Zadanie2.txt' u 5:3 w lp pt 7
+plot 'Zadanie2.txt' u 5:3 w lp pt 7 title 'E(t)'
 
 set autoscale y
 set output'Z02c.jpg'
-set title 'Zad 2.1) Krzywa V(x) dla tol=10^-1'
+set title 'Zad 2.1) Krzywa V(x) dla tol=10^-4'
 set xlabel 'x'
 set ylabel 'V(x)'
+unset key
 plot 'Zadanie2.1.txt' u 1:2 w lp pt 7
+set key
 
 set output'Z02d.jpg'
-set title 'Zad 2.2) Zależność energii dla tol=10 -1'
+set title 'Zad 2.2) Zależność energii dla tol=10 -4'
 set xlabel 't'
 set ylabel 'E(x)'
-plot 'Zadanie2.1.txt' u 5:3 w lp pt 7
+plot 'Zadanie2.1.txt' u 5:3 w lp pt 7 title 'E(t)'
 
 set autoscale y
 set output'Z02e.jpg'
-set title 'Zad 2.1) Krzywa V(x) dla tol=10^-1'
+set title 'Zad 2.1) Krzywa V(x) dla tol=10^-6'
 set xlabel 'x'
 set ylabel 'V(x)'
+unset key
+set yrange[-1.1:1.1]
 plot 'Zadanie2.2.txt' u 1:2 w lp pt 7
+set key
+set autoscale y
 
 set output'Z02f.jpg'
-set title 'Zad 2.2) Zależność energii dla tol=10 -1'
+set title 'Zad 2.2) Zależność energii dla tol=10 -6'
 set xlabel 't'
 set ylabel 'E(x)'
-plot 'Zadanie2.2.txt' u 5:3 w lp pt 7
+plot 'Zadanie2.2.txt' u 5:3 w lp pt 7 title 'E(t)'
 
 set output'Z02g.jpg'
 set title 'Zad. 2.3) Krok dt, tol=10 -4'
@@ -62,63 +70,69 @@ set yrange [0:1]
 set key below
 plot 'Zadanie2.1.txt' u 5:4 w lp pt 7 axes x1y2 title 'dt(t)','' u 5:6 w lp pt 7 title 'x^(t)','' u 5:7 w lp pt 7 title 'V^2(t)'
 set autoscale y
+
 reset
 set terminal jpeg
 #Zadanie3
 
 set yrange[-1:1]
+set xrange[-1:1]
 set output'Z03a.jpg'
 set title 'Zad 3.1) Krzywa V(x) dla tol=10^-1'
 set xlabel 'x'
 set ylabel 'V(x)'
-plot 'Zadanie3.1.txt' u 1:2 w lp pt 7
+unset key
+plot 'Zadanie3.1.txt' u 1:2 w l
+set key
+
 set autoscale y
+set autoscale x
 set output'Z03b.jpg'
 set title 'Zad 3.2) Zależność energii dla tol=10 -1'
-set xlabel 'x'
-set ylabel 'E(x)'
-plot 'Zadanie3.1.txt' u 5:3 w lp pt 7
+set xlabel 't'
+set ylabel 'E(t)'
+plot 'Zadanie3.1.txt' u 5:3 w l title 'E(t)'
 
 set autoscale y
 set output'Z03c.jpg'
-set title 'Zad 3.1) Krzywa V(x) dla tol=10^-1'
+set title 'Zad 3.1) Krzywa V(x) dla tol=10^-4'
 set xlabel 'x'
 set ylabel 'V(x)'
-plot 'Zadanie3.2.txt' u 1:2 w lp pt 7
+plot 'Zadanie3.2.txt' u 1:2 w l
 
 set output'Z03d.jpg'
-set title 'Zad 3.2) Zależność energii dla tol=10 -1'
-set xlabel 'x'
-set ylabel 'E(x)'
-plot 'Zadanie3.2.txt' u 5:3 w lp pt 7
+set title 'Zad 3.2) Zależność energii dla tol=10 -4'
+set xlabel 't'
+set ylabel 'E(t)'
+plot 'Zadanie3.2.txt' u 5:3 w l title 'E(t)'
 
 set autoscale y
 set output'Z03e.jpg'
-set title 'Zad 2.1) Krzywa V(x) dla tol=10^-1'
+set title 'Zad 2.1) Krzywa V(x) dla tol=10^-6'
 set xlabel 'x'
 set ylabel 'V(x)'
-plot 'Zadanie3.3.txt' u 1:2 w lp pt 7
+plot 'Zadanie3.3.txt' u 1:2 w l title 'E(t)'
 
 set output'Z03f.jpg'
-set title 'Zad 3.2) Zależność energii dla tol=10 -1'
-set xlabel 'x'
-set ylabel 'E(x)'
-plot 'Zadanie3.3.txt' u 5:3 w lp pt 7
+set title 'Zad 3.2) Zależność energii dla tol=10 -6'
+set xlabel 't'
+set ylabel 'E(t)'
+plot 'Zadanie3.3.txt' u 5:3 w l title 'E(t)'
 
 set output'Z03g.jpg'
 set title 'Zad. 3.3) Krok dt, tol=10 -4'
-set xlabel 'x'
-set ylabel 'E(x)'
+set xlabel 't'
+set ylabel 'E(t)'
 set y2tics
 #set y2range [0.05:0.07]
 set yrange [0:1]
 set autoscale y2
-plot 'Zadanie3.2.txt' u 5:4 w lp pt 7 axes x1y2,'' u 5:6 w lp pt 7,'' u 5:7 w lp pt 7
+plot 'Zadanie3.2.txt' u 5:4 w l axes x1y2 title 'dt(t)','' u 5:6 w l title 'x^(t)','' u 5:7 w l title 'V^(t)'
 set autoscale y
 
 set output'Z03h.jpg'
 set title 'Zad 3.2) Zależność energii dla tol=10 -1'
-set xlabel 'x'
-set ylabel 'E(x)'
-plot 'Zadanie3.1.txt' u 5:3 w lp pt 7,'Zadanie2.txt' u 5:3 w lp pt 7
+set xlabel 't'
+set ylabel 'E(t)'
+plot 'Zadanie2.txt' u 5:3 w l title 'RK2','Zadanie3.1.txt' u 5:3 w l title 'RK4'
 
