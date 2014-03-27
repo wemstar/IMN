@@ -184,7 +184,7 @@ def trapezEquasion(function1, function2, pt, pu1, pu2, dt):
 
 
 def simpleEuera(function, t, pu, dt):
-    return pu + dt * function(t , pu)
+    return pu + dt * function(t +dt, pu)
 
 
 def complicatedEuera(function, t, pu, dt):
