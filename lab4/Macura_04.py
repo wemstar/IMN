@@ -48,11 +48,11 @@ class PointZad2:
 
 
 def function1Zad1(t, u1, u2):
-    return 98.0 * u1 + 198 * u2
+    return 98.0 * u1 + 198.0 * u2
 
 
 def function2Zad1(t, u1, u2):
-    return -99.0 * u1 - 199 * u2
+    return -99.0 * u1 - 199.0 * u2
 
 
 def function1Zad2(t, u1, u2, dt):
@@ -64,11 +64,11 @@ def function2Zad2(t, u1, u2, dt):
 
 
 def function1Zad2Roz(t):
-    return 2.0 * exp(-t) - exp(-100 * t)
+    return 2.0 * exp(-t) - exp(-100.0 * t)
 
 
 def function2Zad2Roz(t):
-    return exp(-100 * t) - exp(-t)
+    return exp(-100.0 * t) - exp(-t)
 
 
 def function1Zad3(t, u):
@@ -76,7 +76,7 @@ def function1Zad3(t, u):
 
 
 def function2Zad3(t, u, dt):
-    return (u - dt * (150 * cos(t + dt) - sin(t + dt))) / (1 + 150 * dt)
+    return (u - dt * (150.0 * cos(t + dt) - sin(t + dt))) / (1.0 + 150.0 * dt)
 
 
 def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, tol):
@@ -90,9 +90,9 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
     t = start
     dt = dts
     while t < end:
-        u11, u12 = method(function1, function2, t + dt, pu[-1].x, pu[-1].v, dt)
-        u21, u22 = method(function1, function2, t + 0.5 * dt, pu[-1].x, pu[-1].v, 0.5 * dt)
-        u21, u22 = method(function1, function2, t + dt, u21, u22, 0.5 * dt)
+        u11, u12 = method(function1, function2, t - 2.0*dt, pu[-1].x, pu[-1].v,  2.0*dt)
+        u21, u22 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].v, dt)
+        u21, u22 = method(function1, function2, t - dt, u21, u22, dt)
 
         e1 = error(u11, u21, n)
         e2 = error(u12, u22, n)
@@ -100,38 +100,47 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
         dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
 
         if er < tol:
-            t += dt
+            t +=  2.0*dt
             p = PointZad2()
             p.x = u21
-            p.V = u22
-            p.dt = dt / 2.0
+            p.v = u22
+            p.dt = dt
             p.t = t
+
+
             pu.append(p)
     return pu
 
 
-def richardson(method, function, start, end, dt, s, y0, tol):
+def richardson(method, function, start, end, dts, s, y0, tol):
     p0 = PointZad2()
     p0.x = y0
-    p0.dt = dt
 
-    y = [p0]
+    p0.dt = dts
+
+    pu = [p0]
     n = method.n
     t = start
+    dt = dts
     while t < end:
-        y1 = method(function, y[-1].x, t + dt, dt)
-        y2 = method(function, y[-1].x, t + 0.5 * dt, 0.5 * dt)
-        y2 = method(function, y2, t + dt, 0.5 * dt)
-        er = error(y1, y2, n)
+        u11 = method(function, t - 2.0*dt, pu[-1].x,  2.0*dt)
+        u21 = method(function, t - 2.0* dt, pu[-1].x, dt)
+        u21 = method(function, t - dt, u21, dt)
+
+        er = error(u11, u21, n)
+
         dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
+
         if er < tol:
-            t += dt
+
             p = PointZad2()
-            p.x = y2
-            p.dt = dt / 2.0
+            p.x = u21
+            p.dt = dt
             p.t = t
-            y.append(p)
-    return y
+            t += 2.0* dt
+
+            pu.append(p)
+    return pu
 
 
 def error(u1, u2, n):
@@ -174,27 +183,30 @@ def trapezEquasion(function1, function2, pt, pu1, pu2, dt):
     return u1, u2
 
 
-def simpleEuera(function, pu, t, dt):
-    return pu + dt * function(t - dt, pu)
+def simpleEuera(function, t, pu, dt):
+    return pu + dt * function(t , pu)
 
-def complicatedEuera(function,pu,t,dt):
-    return function(t,pu,dt)
+
+def complicatedEuera(function, t, pu, dt):
+    return function(t, pu, dt)
+
 
 def lab4Zadanie1():
-    v0 = 1.0
-    x0 = 0.0
+    v0 = 0.0
+    x0 = 1.0
     S = 0.75
     start = 0.0
     end = 100.0
     files = ("Zadanie1.1.txt", "Zadanie1.2.txt")
     methods = (RK2Eauasion, RK4)
-    for file, method in zip(files, methods):
-        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.00001, S, x0, v0, 0.00001)
+    oscilation = ('0.02', '0.0278')
+    for file, method, osc in zip(files, methods, oscilation):
+        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.01, S, x0, v0, 0.00001)
         with open(file, "w") as fp:
             for u1 in ru:
                 fp.write(
-                    "{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {0.dt:0.20f} {0.e:0.20f} {0.X2:0.20f} {0.V2:0.20f}\n".format(
-                        u1))
+                    "{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f} {3}\n".format(
+                        u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t), osc))
 
 
 def lab4Zadanie2():
@@ -204,22 +216,22 @@ def lab4Zadanie2():
     start = 0.0
     end = 100.0
     files = ("Zadanie2.1.txt", "Zadanie2.2.txt")
-    ru = iterateEquasion(trapezEquasion, function1Zad2, function2Zad2, start, end, 0.01, S, x0, v0, 0.00001)
+    ru = iterateEquasion(trapezEquasion, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, 0.00001)
     with open(files[1], "w") as fp:
-        for u1 in ru:
+        for u1 in ru[:-1]:
             fp.write(
                 "{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {0.dt:0.20f} {0.e:0.20f} {0.X2:0.20f} {0.V2:0.20f} {1:0.20f} {2:0.20f}\n".format(
                     u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t)))
 
 
 def lab4Zadanie3():
-    x0 = -1.0
-    start = 0
+    x0 = 0.0
+    start = 0.0
     end = 3.0 / 2.0 * pi
     tols = (0.01, 0.001, 0.0001)
     filenames = ("Zadanie3.1.txt", "Zadanie3.2.txt", "Zadanie3.3.txt")
     for file, tol in zip(filenames, tols):
-        numerycznie = richardson(simpleEuera, function1Zad3, start, end, 0.001, 0.75, x0, tol)
+        numerycznie = richardson(simpleEuera, function1Zad3, start, end, 0.1, 0.75, x0, tol)
         with open(file, "w") as fp:
             for u1 in numerycznie:
                 fp.write(
@@ -228,9 +240,9 @@ def lab4Zadanie3():
 
     filenames2 = ("Zadanie3.4.txt", "Zadanie3.5.txt", "Zadanie3.6.txt")
     for file, tol in zip(filenames2, tols):
-        numerycznie = richardson(complicatedEuera, function2Zad3, start, end, 0.001, 0.75, x0, tol)
+        numerycznie2 = richardson(complicatedEuera, function2Zad3, start, end, 0.1, 0.75, x0, tol)
         with open(file, "w") as fp:
-            for u1 in numerycznie:
+            for u1 in numerycznie2:
                 fp.write(
                     "{0.t:0.20f} {0.x:0.20f} {0.dt:0.20f} {1:0.20f}\n".format(
                         u1, -cos(u1.t)))
@@ -241,7 +253,7 @@ def main():
     RK2Eauasion.n = 3.0
     RK4.n = 5.0
     trapezEquasion.n = 3.0
-    complicatedEuera.n=3.0
+    complicatedEuera.n = 3.0
     lab4Zadanie1()
     lab4Zadanie2()
     lab4Zadanie3()
