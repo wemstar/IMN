@@ -5,11 +5,10 @@ __author__ = 'wemstar'
 
 
 class PointZad2:
-    x=float()
-    y=float()
-    dt=float()
-    t=float()
-
+    x = float()
+    y = float()
+    dt = float()
+    t = float()
 
 
 def function1Zad1(t, u1, u2):
@@ -21,11 +20,11 @@ def function2Zad1(t, u1, u2):
 
 
 def function1Zad2(t, u1, u2, dt):
-    return -(u1 * (50.0 * (dt ** 2.0) - 297.0 * dt - 2) - 396.0 * u2 * dt) / (50.0 * (dt ** 2.0) + 101.0 * dt + 2.0)
+    return -(u1 * (50.0 * (dt ** 2.0) - 297.0 * dt - 2.0) - 396.0 * u2 * dt) / (50.0 * (dt ** 2.0) + 101.0 * dt + 2.0)
 
 
 def function2Zad2(t, u1, u2, dt):
-    return -(198.0 * u1 * dt + u2 * (50.0 * (dt ** 2) + 297.0 * dt - 2.0)) / (50.0 * (dt ** 2.0) + 101.0 * dt + 2.0)
+    return -(198.0 * u1 * dt + u2 * (50.0 * (dt ** 2.0) + 297.0 * dt - 2.0)) / (50.0 * (dt ** 2.0) + 101.0 * dt + 2.0)
 
 
 def function1Zad2Roz(t):
@@ -55,9 +54,9 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
     t = start
     dt = dts
     while t < end:
-        u11, u12 = method(function1, function2, t-2.0*dt, pu[-1].x, pu[-1].y, 2.0*dt)
-        u21, u22 = method(function1, function2, t-2.0*dt , pu[-1].x, pu[-1].y,  dt)
-        u21, u22 = method(function1, function2, t-dt, u21, u22,dt)
+        u11, u12 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].y, 2.0 * dt)
+        u21, u22 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].y, dt)
+        u21, u22 = method(function1, function2, t - dt, u21, u22, dt)
 
         e1 = error(u11, u21, n)
         e2 = error(u12, u22, n)
@@ -65,51 +64,63 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
         dt *= ((s * tol) / er) ** (1.0 / n)
 
         if er < tol:
-
             p = PointZad2()
             p.x = u21
             p.y = u22
             p.dt = dt
 
-            p.t=t
-            t += 2.0*dt
-
-
-
-
-
-            pu.append(p)
-    return pu
-
-
-def richardson(method, function, start, end, dts, s, y0, tol):
-    p0 = PointZad2()
-    p0.x = y0
-
-    p0.dt = dts
-
-    pu = [p0]
-    n = method.n
-    t = start
-    dt = dts
-    while t < end:
-        u11 = method(function, t - 2.0 * dt, pu[-1].x, 2.0 * dt)
-        u21 = method(function, t - 2.0 * dt, pu[-1].x, dt)
-        u21 = method(function, t - dt, u21, dt)
-
-        er = error(u11, u21, t)
-
-        dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
-
-        if er < tol:
-            p = PointZad2()
-            p.x = u21
-            p.dt = 2.0*dt
             p.t = t
             t += 2.0 * dt
 
             pu.append(p)
     return pu
+
+
+def iterateWithoutError(method, function1, function2, start, end, dts, u0, v0):
+    p0 = PointZad2()
+    p0.x = u0
+    p0.y = v0
+    p0.dt = dts
+
+    pu = [p0]
+    t = start
+    dt = dts
+    while t < end:
+        u11, u12 = method(function1, function2, t, pu[-1].x, pu[-1].y, dt)
+        p = PointZad2()
+        p.x = u11
+        p.y = u12
+        p.dt = dt
+        p.t = t
+        t += 2.0 * dt
+        pu.append(p)
+    return pu
+
+
+def richardson(method, function, start, end, dts,s, y0,tol):
+    t = start;
+    n = method.n
+    dt = dts
+    p0 = PointZad2()
+    p0.x = y0
+    p0.dt = dts
+    y=[p0]
+    while t < end:
+        y1 = method(function, t +2.0*dt,y[-1].x, 2.0*dt)
+        y2 = method(function, t + dt,y[-1].x,  dt)
+        y2 = method(function, t  +dt,y2,  dt)
+        er=error(y1,y2,n)
+        dt *= ((s * tol) / er) ** (1.0 / n)
+        if er < tol:
+            p = PointZad2()
+            p.x = y2
+            p.dt = dt
+            t +=  2.0*dt
+            p.t = t
+
+            y.append(p)
+
+    return y
 
 
 def error(u1, u2, n):
@@ -136,11 +147,11 @@ def RK4(function1, function2, pt, pu1, pu2, dt):
 
 
 def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
-    k11 = function1(pt-dt, pu1, pu2)
-    k21 = function2(pt-dt, pu1, pu2)
+    k11 = function1(pt - dt, pu1, pu2)
+    k21 = function2(pt - dt, pu1, pu2)
 
-    k12 = function1(pt , pu1 + dt * k11, pu2 + dt * k21)
-    k22 = function2(pt , pu1 + dt * k11, pu2 + dt * k21)
+    k12 = function1(pt, pu1 + dt * k11, pu2 + dt * k21)
+    k22 = function2(pt, pu1 + dt * k11, pu2 + dt * k21)
     u1 = pu1 + dt * 0.5 * (k11 + k12)
     u2 = pu2 + dt * 0.5 * (k21 + k22)
     return u1, u2
@@ -157,7 +168,7 @@ def simpleEuera(function, t, pu, dt):
 
 
 def complicatedEuera(function, t, pu, dt):
-    return function(t, pu, dt)
+    return function(t , pu, dt)
 
 
 def lab4Zadanie1():
@@ -170,12 +181,18 @@ def lab4Zadanie1():
     methods = (RK2Eauasion, RK4)
     oscilation = ('0.02', '0.0278')
     for file, method, osc in zip(files, methods, oscilation):
-        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.01, s, x0, v0, 0.00001)
+        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.0001, s, x0, v0, 0.00001)
         with open(file, "w") as fp:
             for u1 in ru:
                 fp.write(
                     "{0.t:0.20f} {0.x:0.20f} {0.y:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f} {3}\n".format(
                         u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t), osc))
+    roz = iterateWithoutError(RK2Eauasion, function1Zad1, function2Zad1, start, end, 0.021, x0, v0)
+    with open("Zadanie1.3.txt", "w") as fp:
+        for u1 in roz:
+            fp.write(
+                "{0.t:0.20f} {0.x:0.20f} {0.y:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f} \n".format(
+                    u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t)))
 
 
 def lab4Zadanie2():
@@ -222,10 +239,10 @@ def main():
     RK2Eauasion.n = 3.0
     RK4.n = 5.0
     trapezEquasion.n = 3.0
-    complicatedEuera.n = 3.0
-    lab4Zadanie1()
+    complicatedEuera.n = 4.0
+    # lab4Zadanie1()
     # lab4Zadanie2()
-    # lab4Zadanie3()
+    lab4Zadanie3()
 
     call(["gnuplot", "Macura_04.gpl"])
 
