@@ -5,46 +5,11 @@ __author__ = 'wemstar'
 
 
 class PointZad2:
-    X = float()
-    V = float()
-    DT = float()
-    t = float()
+    x=float()
+    y=float()
+    dt=float()
+    t=float()
 
-    @property
-    def x(self):
-        return self.X
-
-    @x.setter
-    def x(self, value):
-        self.X = value
-
-    @property
-    def v(self):
-        return self.V
-
-    @v.setter
-    def v(self, value):
-        self.V = value
-
-    @property
-    def e(self):
-        return (self.X2 + self.V2) * 0.5
-
-    @property
-    def dt(self):
-        return self.DT
-
-    @dt.setter
-    def dt(self, value):
-        self.DT = value
-
-    @property
-    def V2(self):
-        return self.v ** 2.0
-
-    @property
-    def X2(self):
-        return self.x ** 2.0
 
 
 def function1Zad1(t, u1, u2):
@@ -82,7 +47,7 @@ def function2Zad3(t, u, dt):
 def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, tol):
     p0 = PointZad2()
     p0.x = f10
-    p0.v = f20
+    p0.y = f20
     p0.dt = dts
 
     pu = [p0]
@@ -90,22 +55,27 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
     t = start
     dt = dts
     while t < end:
-        u11, u12 = method(function1, function2, t - 2.0*dt, pu[-1].x, pu[-1].v,  2.0*dt)
-        u21, u22 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].v, dt)
-        u21, u22 = method(function1, function2, t - dt, u21, u22, dt)
+        u11, u12 = method(function1, function2, t-2.0*dt, pu[-1].x, pu[-1].y, 2.0*dt)
+        u21, u22 = method(function1, function2, t-2.0*dt , pu[-1].x, pu[-1].y,  dt)
+        u21, u22 = method(function1, function2, t-dt, u21, u22,dt)
 
         e1 = error(u11, u21, n)
         e2 = error(u12, u22, n)
         er = max(e1, e2);
-        dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
+        dt *= ((s * tol) / er) ** (1.0 / n)
 
         if er < tol:
-            t +=  2.0*dt
+
             p = PointZad2()
             p.x = u21
-            p.v = u22
+            p.y = u22
             p.dt = dt
-            p.t = t
+
+            p.t=t
+            t += 2.0*dt
+
+
+
 
 
             pu.append(p)
@@ -123,21 +93,20 @@ def richardson(method, function, start, end, dts, s, y0, tol):
     t = start
     dt = dts
     while t < end:
-        u11 = method(function, t - 2.0*dt, pu[-1].x,  2.0*dt)
-        u21 = method(function, t - 2.0* dt, pu[-1].x, dt)
+        u11 = method(function, t - 2.0 * dt, pu[-1].x, 2.0 * dt)
+        u21 = method(function, t - 2.0 * dt, pu[-1].x, dt)
         u21 = method(function, t - dt, u21, dt)
 
-        er = error(u11, u21, n)
+        er = error(u11, u21, t)
 
         dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
 
         if er < tol:
-
             p = PointZad2()
             p.x = u21
-            p.dt = dt
+            p.dt = 2.0*dt
             p.t = t
-            t += 2.0* dt
+            t += 2.0 * dt
 
             pu.append(p)
     return pu
@@ -167,13 +136,13 @@ def RK4(function1, function2, pt, pu1, pu2, dt):
 
 
 def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
-    k11 = function1(pt, pu1, pu2)
-    k21 = function2(pt, pu1, pu2)
+    k11 = function1(pt-dt, pu1, pu2)
+    k21 = function2(pt-dt, pu1, pu2)
 
-    k12 = function1(pt + dt, pu1 + dt * k11, pu2 + dt * k21)
-    k22 = function2(pt + dt, pu1 + dt * k11, pu2 + dt * k21)
-    u1 = pu1 + dt * 0.5 * k11 + dt * 0.5 * k12
-    u2 = pu2 + dt * 0.5 * k21 + dt * 0.5 * k22
+    k12 = function1(pt , pu1 + dt * k11, pu2 + dt * k21)
+    k22 = function2(pt , pu1 + dt * k11, pu2 + dt * k21)
+    u1 = pu1 + dt * 0.5 * (k11 + k12)
+    u2 = pu2 + dt * 0.5 * (k21 + k22)
     return u1, u2
 
 
@@ -184,7 +153,7 @@ def trapezEquasion(function1, function2, pt, pu1, pu2, dt):
 
 
 def simpleEuera(function, t, pu, dt):
-    return pu + dt * function(t +dt, pu)
+    return pu + dt * function(t + dt, pu)
 
 
 def complicatedEuera(function, t, pu, dt):
@@ -192,20 +161,20 @@ def complicatedEuera(function, t, pu, dt):
 
 
 def lab4Zadanie1():
-    v0 = 0.0
     x0 = 1.0
-    S = 0.75
+    v0 = 0.0
+    s = 0.75
     start = 0.0
     end = 100.0
     files = ("Zadanie1.1.txt", "Zadanie1.2.txt")
     methods = (RK2Eauasion, RK4)
     oscilation = ('0.02', '0.0278')
     for file, method, osc in zip(files, methods, oscilation):
-        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.01, S, x0, v0, 0.00001)
+        ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.01, s, x0, v0, 0.00001)
         with open(file, "w") as fp:
             for u1 in ru:
                 fp.write(
-                    "{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f} {3}\n".format(
+                    "{0.t:0.20f} {0.x:0.20f} {0.y:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f} {3}\n".format(
                         u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t), osc))
 
 
@@ -220,7 +189,7 @@ def lab4Zadanie2():
     with open(files[1], "w") as fp:
         for u1 in ru[:-1]:
             fp.write(
-                "{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {0.dt:0.20f} {0.e:0.20f} {0.X2:0.20f} {0.V2:0.20f} {1:0.20f} {2:0.20f}\n".format(
+                "{0.t:0.20f} {0.x:0.20f} {0.y:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f}\n".format(
                     u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t)))
 
 
@@ -255,8 +224,8 @@ def main():
     trapezEquasion.n = 3.0
     complicatedEuera.n = 3.0
     lab4Zadanie1()
-    lab4Zadanie2()
-    lab4Zadanie3()
+    # lab4Zadanie2()
+    # lab4Zadanie3()
 
     call(["gnuplot", "Macura_04.gpl"])
 
