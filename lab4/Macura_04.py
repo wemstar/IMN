@@ -48,30 +48,28 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
     p0.x = f10
     p0.y = f20
     p0.dt = dts
-
+    p0.t=start
     pu = [p0]
     n = method.n
-    t = start
+    t = start+dts
     dt = dts
     while t < end:
-        u11, u12 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].y, 2.0 * dt)
-        u21, u22 = method(function1, function2, t - 2.0 * dt, pu[-1].x, pu[-1].y, dt)
-        u21, u22 = method(function1, function2, t - dt, u21, u22, dt)
+        u11, u12 = method(function1, function2, pu[-1].t , pu[-1].x, pu[-1].y, dt)
+        u21, u22 = method(function1, function2, pu[-1].t , pu[-1].x, pu[-1].y, 0.5*dt)
+        u21, u22 = method(function1, function2, pu[-1].t+0.5*dt , u21, u22, 0.5*dt)
 
         e1 = error(u11, u21, n)
         e2 = error(u12, u22, n)
         er = max(e1, e2);
         dt *= ((s * tol) / er) ** (1.0 / n)
 
-        if er < tol:
+        if er < tol:            
             p = PointZad2()
             p.x = u21
             p.y = u22
-            p.dt = dt
-
+            p.dt = dt*0.5
             p.t = t
-            t += 2.0 * dt
-
+            t += dt
             pu.append(p)
     return pu
 
@@ -81,7 +79,7 @@ def iterateWithoutError(method, function1, function2, start, end, dts, u0, v0):
     p0.x = u0
     p0.y = v0
     p0.dt = dts
-
+    p0.t = start
     pu = [p0]
     t = start
     dt = dts
@@ -104,19 +102,22 @@ def richardson(method, function, start, end, dts,s, y0,tol):
     p0 = PointZad2()
     p0.x = y0
     p0.dt = dts
+    p0.t = start
     y=[p0]
     while t < end:
-        y1 = method(function, t +2.0*dt,y[-1].x, 2.0*dt)
-        y2 = method(function, t + dt,y[-1].x,  dt)
-        y2 = method(function, t  +dt,y2,  dt)
+        y1 = method(function, y[-1].t,y[-1].x, dt)
+        y2 = method(function, y[-1].t,y[-1].x, 0.5*dt)
+        y2 = method(function, y[-1].t+0.5*dt,y2, 0.5*dt)
         er=error(y1,y2,n)
-        dt *= ((s * tol) / er) ** (1.0 / n)
+        dt *= ((s * tol) / abs(er)) ** (1.0 / n)
         if er < tol:
             p = PointZad2()
             p.x = y2
-            p.dt = dt
-            t +=  2.0*dt
+            p.dt = dt*0.5
+            
+            t +=  dt
             p.t = t
+            
 
             y.append(p)
 
@@ -124,7 +125,7 @@ def richardson(method, function, start, end, dts,s, y0,tol):
 
 
 def error(u1, u2, n):
-    return abs((u2 - u1) / (2.0 ** (n - 1.0) - 1.0))
+    return abs((u1 - u2))/(2.0**(n-1.0) -1.0)
 
 
 def RK4(function1, function2, pt, pu1, pu2, dt):
@@ -147,11 +148,11 @@ def RK4(function1, function2, pt, pu1, pu2, dt):
 
 
 def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
-    k11 = function1(pt - dt, pu1, pu2)
-    k21 = function2(pt - dt, pu1, pu2)
+    k11 = function1(pt , pu1, pu2)
+    k21 = function2(pt , pu1, pu2)
 
-    k12 = function1(pt, pu1 + dt * k11, pu2 + dt * k21)
-    k22 = function2(pt, pu1 + dt * k11, pu2 + dt * k21)
+    k12 = function1(pt+dt, pu1 + dt * k11, pu2 + dt * k21)
+    k22 = function2(pt+dt, pu1 + dt * k11, pu2 + dt * k21)
     u1 = pu1 + dt * 0.5 * (k11 + k12)
     u2 = pu2 + dt * 0.5 * (k21 + k22)
     return u1, u2
@@ -179,7 +180,7 @@ def lab4Zadanie1():
     end = 100.0
     files = ("Zadanie1.1.txt", "Zadanie1.2.txt")
     methods = (RK2Eauasion, RK4)
-    oscilation = ('0.02', '0.0278')
+    oscilation = ('0.021', '0.0278')
     for file, method, osc in zip(files, methods, oscilation):
         ru = iterateEquasion(method, function1Zad1, function2Zad1, start, end, 0.0001, s, x0, v0, 0.00001)
         with open(file, "w") as fp:
@@ -204,14 +205,14 @@ def lab4Zadanie2():
     files = ("Zadanie2.1.txt", "Zadanie2.2.txt")
     ru = iterateEquasion(trapezEquasion, function1Zad2, function2Zad2, start, end, 0.001, S, x0, v0, 0.00001)
     with open(files[1], "w") as fp:
-        for u1 in ru[:-1]:
+        for u1 in ru:
             fp.write(
                 "{0.t:0.20f} {0.x:0.20f} {0.y:0.20f} {0.dt:0.20f} {1:0.20f} {2:0.20f}\n".format(
                     u1, function1Zad2Roz(u1.t), function2Zad2Roz(u1.t)))
 
 
 def lab4Zadanie3():
-    x0 = 0.0
+    x0 = -1.0
     start = 0.0
     end = 3.0 / 2.0 * pi
     tols = (0.01, 0.001, 0.0001)
@@ -226,7 +227,7 @@ def lab4Zadanie3():
 
     filenames2 = ("Zadanie3.4.txt", "Zadanie3.5.txt", "Zadanie3.6.txt")
     for file, tol in zip(filenames2, tols):
-        numerycznie2 = richardson(complicatedEuera, function2Zad3, start, end, 0.1, 0.75, x0, tol)
+        numerycznie2 = richardson(complicatedEuera, function2Zad3, start, end, 0.01, 0.75, x0, tol)
         with open(file, "w") as fp:
             for u1 in numerycznie2:
                 fp.write(
@@ -239,12 +240,11 @@ def main():
     RK2Eauasion.n = 3.0
     RK4.n = 5.0
     trapezEquasion.n = 3.0
-    complicatedEuera.n = 4.0
-    # lab4Zadanie1()
-    # lab4Zadanie2()
+    complicatedEuera.n = 3.0
+    lab4Zadanie1()
+    lab4Zadanie2()
     lab4Zadanie3()
 
     call(["gnuplot", "Macura_04.gpl"])
-
 
 main()

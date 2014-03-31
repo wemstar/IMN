@@ -17,7 +17,7 @@ set autoscale x
 set autoscale y
 
 set nologscale x
-set yrange [0:0.05]
+
 set title 'Zad. 1.1) RK2 - akceptowany krok czasowy'
 set ylabel 'dt(t)'
 set output 'Z01b.jpg'
@@ -45,7 +45,7 @@ plot 'Zadanie2.2.txt' u 1:5 w l title 'u(t) an.','' u 1:6 w l title 'v(t) an.','
 set nologscale x
 set output 'Z02b.jpg'
 set title 'Zad. 2.2) Trapezy akceptowalny krok czasowy'
-set yrange[0:40]
+
 set ylabel 'dt(t)'
 plot 'Zadanie2.2.txt' u 1:4 w lp pt 7
 set autoscale y
@@ -74,7 +74,9 @@ plot 'Zadanie3.2.txt' u 1:2 w p pt 7 title 'numerycznie','' u 1:4 w l title 'ana
 set output 'Z03d.jpg'
 set title 'Zad. 3.1) Jawny Euler - krok dla tol=0.001'
 set ylabel 'dt(t)'
+set yrange [0:0.04]
 plot 'Zadanie3.2.txt' u 1:3 w lp pt 7 ps 0.5 title 'numerycznie'
+set autoscale y
 
 set output 'Z03e.jpg'
 set title 'Zad. 3.1) Jawny schemat Eulera, tol=0.0001'
@@ -84,7 +86,9 @@ plot 'Zadanie3.3.txt' u 1:2 w p pt 7 title 'numerycznie','' u 1:4 w l title 'ana
 set output 'Z03f.jpg'
 set title 'Zad. 3.1) Jawny Euler - krok dla tol=0.0001
 set ylabel 'dt(t)'
+set yrange [0:0.04]
 plot 'Zadanie3.3.txt' u 1:3 w lp pt 7 ps 0.5 title 'numerycznie'
+set autoscale y
 
 #Niejawny
 
