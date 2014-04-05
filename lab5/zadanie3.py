@@ -41,10 +41,11 @@ def RK4(pu, pv, dt):
 
 
 def richardson(start,end,dts,u0,v0):
-    t = start;
+
     n = 5.0
     dt = dts
     tol=0.00001
+    t = start;
     s=0.75
     p0 = Point4(start,dts,u0,v0)
     y=[p0]
@@ -57,18 +58,18 @@ def richardson(start,end,dts,u0,v0):
         er=max(er1,er2)
         dt *= ((s * tol) / abs(er)) ** (1.0 / n)
         if er < tol:
-            t+=dt
+
             p = Point4(t,dt,u2,v2)
+            t+=dt
             y.append(p)
 
     return y
 
 def normal(start,end,dts,u0,v0):
     t = start;
-    n = 5
+
     dt = dts
-    tol=0.00001
-    s=0.75
+
     p0 = Point4(start,dts,u0,v0)
     y=[p0]
     while t < end:
@@ -82,10 +83,10 @@ def normal(start,end,dts,u0,v0):
     return y
 
 def error(u1, u2, n):
-    return abs((u1 - u2))/(15.0)
+    return abs((u1 - u2))/(2.0**(n-1.0)-1.0)
 
 def zadanie3():
-    y=richardson(0.0,100.0,0.001,1,0)
+    y=richardson(0.0,100.0,100.0,1,0)
     rozu=[]
     with open("Zad3.txt","w") as fp:
         for x in y:

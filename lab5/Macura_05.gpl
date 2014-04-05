@@ -23,7 +23,9 @@ plot 'Zad2.0.txt'u 1:2 w lp title 'u(0)=0' \
 
 set output 'Zad3.1.jpeg'
 set logscale x
-plot 'Zad3.txt' u 1:3 w p pt 7,'' u 1:4 w p pt 7,'' u 1:5 w l,'' u 1:6 w l
+f1(x)=exp(-x)
+f2(x)=exp(-100*x)
+plot 'Zad3.txt' u 1:3 w p pt 7,'' u 1:4 w p pt 7, 2*f1(x)-f2(x)  w l, f2(x)-f1(x)  w l
 set nologscale x
 set output 'Zad3.2.jpeg'
 plot 'Zad3.txt' u 1:2 w lp pt 7
