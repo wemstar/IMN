@@ -2,7 +2,7 @@ from math import exp
 
 __author__ = 'wemstar'
 import numpy as np
-from lab5.constrant import *
+from constrant import *
 
 class Point4:
     def __init__(self,t,dt,u,v):
