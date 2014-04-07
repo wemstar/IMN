@@ -27,15 +27,31 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "lab4/Macura_04.py",
+			"settings":
+			{
+				"buffer_size": 7028,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lab4/Macura_04.gpl",
+			"settings":
+			{
+				"buffer_size": 4054,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -55,6 +71,10 @@
 	},
 	"file_history":
 	[
+		"/home/studa1/i1macura/IMN/lab4/Zadanie1.1.txt",
+		"/home/studa1/i1macura/IMN/lab4/Zadanie2.2.txt",
+		"/home/studa1/i1macura/IMN/lab3/Macura_03.py",
+		"/home/studa1/i1macura/IMN/lab3/Macura_03.gpl",
 		"/home/studa1/i1macura/IMN/A2/lab02.p",
 		"/home/studa1/i1macura/IMN/A2/lab02.py",
 		"/home/studa1/i1macura/IMN/A2/File18.txt",
@@ -72,7 +92,7 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -86,6 +106,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"12",
+			"Zależność",
 			"%f",
 			"ę",
 			"ą",
@@ -110,8 +132,67 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "lab4/Macura_04.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7028,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6981,
+								6981
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1326.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "lab4/Macura_04.gpl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2812,
+								2812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 272.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -191,7 +272,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 273.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
