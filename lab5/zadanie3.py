@@ -46,22 +46,23 @@ def richardson(start,end,dts,u0,v0):
     dt = dts
     tol=0.00001
     t = start;
-    s=0.75
+    s=0.55
     p0 = Point4(start,dts,u0,v0)
     y=[p0]
     while t < end:
-        u1,v1 = RK4(y[-1].u,y[-1].v, dt)
-        u2,v2 = RK4(y[-1].u,y[-1].v, 0.5*dt)
-        u2,v2 = RK4(u2,v2, 0.5*dt)
-        er1=error(u1,u2,n)
-        er2=error(v1,v2,n)
+        u1,v1 = RK4(y[-1].u,y[-1].v, 2.0*dt)
+        u2,v2 = RK4(y[-1].u,y[-1].v, dt)
+        u3,v3 = RK4(u2,v2, dt)
+        er1=error(u1,u3,n)
+        er2=error(v1,v3,n)
         er=max(er1,er2)
         dt *= ((s * tol) / abs(er)) ** (1.0 / n)
         if er < tol:
+            t+=dt*2.0
+            p = Point4(t,dt,u3,v3)
 
-            p = Point4(t,dt,u2,v2)
-            t+=dt
             y.append(p)
+            print(er)
 
     return y
 
