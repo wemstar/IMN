@@ -101,7 +101,7 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
         e1 = error(u11, u21, n)
         e2 = error(u12, u22, n)
         er = max(e1, e2);
-        dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
+
 
         if er < tol:
             t += dt
@@ -111,6 +111,7 @@ def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, 
             p.dt = dt / 2.0
             p.t = t
             pu.append(p)
+        dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
     return pu
 
 
