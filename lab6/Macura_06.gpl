@@ -1,15 +1,19 @@
 set term jpeg
 #Zadanie 1
 set output 'Zad1a.jpeg'
-plot 'Zadanie1.1.txt' u 1:2 w lp,'' u 1:3 w l
+set xlabel 'r'
+set title 'Zad. 1) Relaksacja: ε=10 -5'
+plot 'Zadanie1.1.txt' u 1:2 w lp title 'numerycznie','' u 1:3 w l title 'analitycznie'
 set output 'Zad1b.jpeg'
-plot 'Zadanie1.1.txt' u 1:4 w lp
+plot 'Zadanie1.1.txt' u 1:4 w lp title 'Blad'
 
+set title 'Zad. 1) Relaksacja: ε=10 -8'
 set output 'Zad1c.jpeg'
 plot 'Zadanie1.2.txt' u 1:2 w lp,'' u 1:3 w l
 set output 'Zad1d.jpeg'
 plot 'Zadanie1.2.txt' u 1:4 w lp
 
+set title 'Zad. 1) Relaksacja: ε=10 -13'
 set output 'Zad1e.jpeg'
 #plot 'Zadanie1.3.txt' u 1:2 w lp,'' u 1:3 w l
 set output 'Zad1f.jpeg'
