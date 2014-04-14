@@ -10,8 +10,8 @@ def zadanie1():
     srodkowy("Zadanie1.3.txt", 10.0 ** -13.0,iterate)
 
 
-def iterate(tab):
+def iterate(tab, dr=0.1):
     for i in range(1, len(tab) - 1):
-        pierwszy = 2.0 * pi * (0.1 ** 2.0) * tab[i].r * nr(tab[i].r)
+        pierwszy = 2.0 * pi * (dr ** 2.0) * tab[i].r * nr(tab[i].r)
         drugi = 0.5 * (tab[i - 1].f + tab[i + 1].f)
         tab[i].f = pierwszy + drugi
