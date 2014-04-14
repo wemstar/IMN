@@ -10,11 +10,11 @@ def zadanie4():
 
 
 def iterate(tab, dr=0.1):
-    tab[0].f=0
+    tab[-2].f=-1
     tab[-1].f=-1
-    for i in range(1, len(tab) - 1):
-        pierwszy = 4.0 * pi * tab[i + 1].r * nr(tab[i + 1].r)
-        drugi = 4.0 * pi * tab[i].r * nr(tab[i].r)
-        trzeci = 4.0 * pi * tab[i - 1].r * nr(tab[i - 1].r)
-        czwarty = (tab[i - 1].f + tab[i + 1].f) * 0.5
-        tab[i].f = (pierwszy +10.0* drugi+trzeci)*(dr**2)/24.0 +czwarty
+    for i in reversed(range(1, len(tab) - 1)):
+        pierwszy = -4.0 * pi * tab[i + 1].r * nr(tab[i + 1].r)
+        drugi = -4.0 * pi * tab[i].r * nr(tab[i].r)
+        trzeci = -4.0 * pi * tab[i - 1].r * nr(tab[i - 1].r)
+        czwarty = 2.0*tab[i].f - tab[i + 1].f
+        tab[i-1].f = (pierwszy +10.0* drugi+trzeci)*(dr**2.0)/12.0 +czwarty
