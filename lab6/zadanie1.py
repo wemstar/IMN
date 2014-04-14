@@ -1,13 +1,13 @@
 
-from lab6.relaksacji import *
+from relaksacji import *
 
 __author__ = 'wemstar'
 
 
 def zadanie1():
     srodkowy("Zadanie1.1.txt", 10.0 ** -5.0, iterate)
-    srodkowy("Zadanie1.2.txt", 10.0 ** -8.0,iterate)
-    srodkowy("Zadanie1.3.txt", 10.0 ** -13.0,iterate)
+    # srodkowy("Zadanie1.2.txt", 10.0 ** -8.0,iterate)
+    # srodkowy("Zadanie1.3.txt", 10.0 ** -13.0,iterate)
 
 
 def iterate(tab, dr=0.1):

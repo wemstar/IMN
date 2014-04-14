@@ -1,6 +1,6 @@
 __author__ = 'wemstar'
 
-from lab6.relaksacji import *
+from relaksacji import *
 
 
 def zadanie4():

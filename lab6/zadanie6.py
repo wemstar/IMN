@@ -1,6 +1,50 @@
 __author__ = 'wemstar'
 from relaksacji import *
-def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
+
+class PointZad2:
+    X = float()
+    V = float()
+    DT = float()
+    t = float()
+
+    @property
+    def x(self):
+        return self.X
+
+    @x.setter
+    def x(self, value):
+        self.X = value
+
+    @property
+    def v(self):
+        return self.V
+
+    @v.setter
+    def v(self, value):
+        self.V = value
+
+    @property
+    def e(self):
+        return (self.X2 + self.V2) * 0.5
+
+    @property
+    def dt(self):
+        return self.DT
+
+    @dt.setter
+    def dt(self, value):
+        self.DT = value
+
+    @property
+    def V2(self):
+        return self.v ** 2.0
+
+    @property
+    def X2(self):
+        return self.x ** 2.0
+
+
+def RK2Eauasion(pt, pu1, pu2, dt):
     k11 = function1(pt, pu1, pu2)
     k21 = function2(pt, pu1, pu2)
 
@@ -12,27 +56,41 @@ def RK2Eauasion(function1, function2, pt, pu1, pu2, dt):
 
 
 
-def iterateEquasion(method, function1, function2, start, end, dts, s, f10, f20, tol):
+def iterateEquasion(start, end, dts,f10, f20):
+
+    p0 = PointZad2()
+    p0.x = f10
+    p0.v = f20
+    p0.dt = dts
 
     pu = [p0]
-    n = method.n
+
     t = start
     dt = dts
-    while t < end:
-        u11, u12 = method(function1, function2, t + dt, pu[-1].x, pu[-1].v, dt)
-        u21, u22 = method(function1, function2, t + 0.5 * dt, pu[-1].x, pu[-1].v, 0.5 * dt)
-        u21, u22 = method(function1, function2, t + dt, u21, u22, 0.5 * dt)
+    while t > end:
+        u11, u12 = RK2Eauasion(t, pu[-1].x, pu[-1].v, dt)
+      
 
-        e1 = error(u11, u21, n)
-        e2 = error(u12, u22, n)
-        er = max(e1, e2);
-
-
-        if er < tol:
-
-            pu.append(p)
-        dt *= ((s * tol) / (abs(er))) ** (1.0 / n)
+        t += dt
+        p = PointZad2()
+        p.x = u11
+        p.V = u12
+        p.dt = dt 
+        p.t = t
+        pu.append(p)
     return pu
+
+def function1(pt,pu1,pu2):
+    return pu2
+def function2(pt,pu1,pu2):
+    return -4.0 * pi * pt * nr(pt)
 
 def error(u1, u2, n):
     return abs((u2 - u1) / (2.0 ** (n - 1.0) - 1.0))
+
+def zadanie6():
+    roz=iterateEquasion(35,0,-0.1,-1.0,0.0)
+    with open("Zadanie6.txt", "w") as fp:
+        for u1 in roz[1:-1]:
+            fp.write("{0.t:0.20f} {0.x:0.20f} {0.v:0.20f} {1:0.20f} {2:0.20f} \n".format(u1,function1Roz(u1.t),function1Roz(u1.t)-u1.x))
+
