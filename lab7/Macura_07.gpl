@@ -21,3 +21,12 @@ plot 'Zadanie2.0.txt' u 3:4 w lp,'Zadanie2.1.txt' u 3:4 w lp,'Zadanie2.2.txt' u 
 set output 'Zad2b.jpeg'
 
 plot 'Zadanie2.0.txt' u 1:2 w lp,'Zadanie2.1.txt' u 1:2 w lp,'Zadanie2.2.txt' u 1:2 w lp,'Zadanie2.3.txt' u 1:2 w lp,'Zadanie2.4.txt' u 1:2 w lp
+
+
+set output 'Zad2c.jpeg'
+
+plot 'Zadanie2.5.txt' u 3:4 w lp,'Zadanie2.6.txt' u 3:4 w lp,'Zadanie2.7.txt' u 3:4 w lp,'Zadanie2.8.txt' u 3:4 w lp
+
+set output 'Zad2d.jpeg'
+
+plot 'Zadanie2.5.txt' u 1:2 w lp,'Zadanie2.6.txt' u 1:2 w lp,'Zadanie2.7.txt' u 1:2 w lp,'Zadanie2.8.txt' u 1:2 w lp

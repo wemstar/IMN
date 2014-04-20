@@ -3,7 +3,7 @@ from math import pi, sin, cos
 __author__ = 'dom'
 
 import numpy as np
-from scipy import integrate
+
 
 
 class Punkt:
@@ -29,7 +29,16 @@ class Punkt:
         return "{0.s:0.20f} {0.sigma:0.20f} {0.x:0.20f} {0.y:0.20f}\n".format(self)
 def zadanie2():
     fileNames=("Zadanie2.0.txt","Zadanie2.1.txt","Zadanie2.2.txt","Zadanie2.3.txt","Zadanie2.4.txt")
-    for x,i in zip(algorytm(),fileNames):
+    for x,i in zip(algorytm(np.random.random_sample(101)),fileNames):
+        with open(i,"w") as fp:
+            for z in x:
+                fp.write("{0}".format(z))
+    sigma=np.zeros(101)
+    for i in range(1,len(sigma)-1):
+        sigma[i]=pi*0.25-pi*0.5*i*0.005
+
+    fileNames=("Zadanie2.5.txt","Zadanie2.6.txt","Zadanie2.7.txt","Zadanie2.8.txt","Zadanie2.9.txt")
+    for x,i in zip(algorytm(sigma),fileNames):
         with open(i,"w") as fp:
             for z in x:
                 fp.write("{0}".format(z))
@@ -39,8 +48,8 @@ def zadanie2():
 
 
 
-def algorytm():
-    sigma=np.random.random_sample(101)
+
+def algorytm(sigma):
     F=np.zeros(99)
     sigma[0]=pi*0.25
     sigma[-1]=0
