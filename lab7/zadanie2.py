@@ -3,14 +3,30 @@ from math import pi, sin, cos
 __author__ = 'dom'
 
 import numpy as np
+from scipy import integrate
+
 
 class Punkt:
-    def __init__(self,s,sigma):
+    def __init__(self,s,sigma,sig):
         self.s=s
         self.sigma=sigma
+        self.x=self.X(sig)
+        self.y=self.Y(sig)
+
+    def X(self,sig):
+        suma=0
+        for x in sig:
+            suma+=cos(x)
+        return suma
+
+    def Y(self,sig):
+        suma=0
+        for x in sig:
+            suma+=sin(x)
+        return suma
 
     def __str__(self):
-        return "{0.s:0.20f} {0.sigma:0.20f}\n".format(self)
+        return "{0.s:0.20f} {0.sigma:0.20f} {0.x:0.20f} {0.y:0.20f}\n".format(self)
 def zadanie2():
     fileNames=("Zadanie2.0.txt","Zadanie2.1.txt","Zadanie2.2.txt","Zadanie2.3.txt","Zadanie2.4.txt")
     for x,i in zip(algorytm(),fileNames):
@@ -24,9 +40,10 @@ def zadanie2():
 
 
 def algorytm():
-    sigma=np.zeros(101)
+    sigma=np.random.random_sample(101)
     F=np.zeros(99)
     sigma[0]=pi*0.25
+    sigma[-1]=0
     ds=0.005
     J=np.zeros((99,99))
     error=1
@@ -39,10 +56,9 @@ def algorytm():
             if i<98:
                 J[i][i+1]=1
         x=np.linalg.solve(J,-1.0*F)
+        roz=[Punkt(i*ds,x,sigma[:i]) for x,i in zip(sigma,range(len(sigma)))]
         for i in range(1,len(sigma)-1):
             sigma[i]=sigma[i]+x[i-1]
         error=np.amax(abs(x))
-        roz=[Punkt(i*ds,x) for x,i in zip(sigma,range(len(sigma)))]
+
         yield  roz
-        print(F)
-    return F
