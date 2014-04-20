@@ -22,7 +22,7 @@ def main():
     zadanie5.zadanie5()
     zadanie6.zadanie6()
 
-    call(["gnuplot", "Macura_06.gpl"])
+    call(["gnuplot", "E:\\sylwek\IMN\lab6\Macura_06.gpl"])
 
 
 
