@@ -2,6 +2,7 @@ __author__ = 'dom'
 
 
 import lab7.zadanie1
+import lab7.zadanie2
 
 
 
@@ -10,6 +11,7 @@ import lab7.zadanie1
 
 
 def main():
-    lab7.zadanie1.zadanie1()
+    # lab7.zadanie1.zadanie1()
+    lab7.zadanie2.zadanie2()
 
 main()

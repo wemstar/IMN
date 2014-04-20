@@ -1,7 +1,7 @@
 __author__ = 'dom'
 
 
-class Potencja:
+class Point:
     def __init__(self, x, mi, E):
         self.x = x
         self.mi = mi
@@ -23,7 +23,7 @@ def V(x):
 
 
 def g(x, E):
-    return -2.0 * (-V(x) + E)
+    return 2.0 * (-V(x) + E)
 
 
 def rozwiaz(L, dx):
@@ -32,15 +32,15 @@ def rozwiaz(L, dx):
 
     for i in range(len(E)):
         x = -L
-        p = [Potencja(x, 0, E[i])]
-        p.append(Potencja(x + dx, 1.948525 * (10.0 ** -5.0), E[i]))
+        pu1 = 0
+        pu2 = 1.948525 * (10.0 ** -5.0)
         x += 2.0 * dx
         while x <= L:
-            pierwszy = 2.0 * (12.0 - 5.0 * (dx ** 2.0) * g(p[-1].x, E[i]) )* p[-1].mi
-            drugi = (12.0 + dx ** 2.0 * g(p[-2].x, E[i]) )* p[-2].mi
+            pierwszy = 2.0 * (12.0 - 5.0 * (dx ** 2.0) * g(x - dx, E[i]) ) * pu2
+            drugi = (12.0 + dx ** 2.0 * g(x - 2.0 * dx, E[i]) ) * pu1
             trzeci = 12.0 + (dx ** 2) * g(x, E[i])
-            po = Potencja(x, (pierwszy - drugi) / trzeci, E[i])
-            p.append(po)
+            pu1 = pu2
+            pu2 = (pierwszy - drugi) / trzeci
             x += dx
-        roz.append(p[-1])
+        roz.append(Point(x, pu2, E[i]))
     return roz

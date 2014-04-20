@@ -5,3 +5,13 @@ set xlabel 'E'
 set ylabel 'ψ(x=L;E)'
 set title 'Zad. 1.1) Zależność ψ(x=L;E)'
 plot 'Zadanie1.txt' u 3:2 w lp
+
+
+set output 'Zad1b.jpeg'
+set yrange [-1:4]
+plot 'Zadanie1.txt' u 3:2 w lp
+set autoscale y
+
+set output 'Zad2b.jpeg'
+
+plot 'Zadanie2.1.txt' u 1:2 w lp,'Zadanie2.2.txt' u 1:2 w lp,'Zadanie2.3.txt' u 1:2 w lp,'Zadanie2.4.txt' u 1:2 w lp
