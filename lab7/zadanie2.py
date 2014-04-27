@@ -50,13 +50,16 @@ def zadanie2():
 
 
 def algorytm(sigma):
-    F=np.zeros(99)
+
     sigma[0]=pi*0.25
     sigma[-1]=0
     ds=0.005
-    J=np.zeros((99,99))
+
     error=1
+
     while error >0.000000000000001:
+        J=np.zeros((99,99))
+        F=np.zeros(99)
         for i in range(len(F)):
             F[i]=sigma[i]-2.0*sigma[i+1]+sigma[i+2]+8.0*(ds**2.0)*sin(sigma[i+1])
             J[i][i]=-2.0+8.0*(ds**2.0)*cos(sigma[i+1])
