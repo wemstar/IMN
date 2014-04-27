@@ -1,8 +1,10 @@
+from subprocess import call
+
 __author__ = 'dom'
 
 
-import lab7.zadanie1
-import lab7.zadanie2
+import zadanie1
+import zadanie2
 
 
 
@@ -11,7 +13,8 @@ import lab7.zadanie2
 
 
 def main():
-    # lab7.zadanie1.zadanie1()
-    lab7.zadanie2.zadanie2()
+    zadanie1.zadanie1()
+    zadanie2.zadanie2()
+    call(["gnuplot", "Macura_07.gpl"])
 
 main()

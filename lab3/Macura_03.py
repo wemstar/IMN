@@ -2,7 +2,7 @@ from math import exp, pi
 from subprocess import call
 
 __author__ = 'wemstar'
-
+from mpi4py import *
 
 class PointZad2:
     X = float()
