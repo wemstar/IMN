@@ -68,7 +68,7 @@ def algorytm(sigma):
             if i<98:
                 J[i][i+1]=1
         x=np.linalg.solve(J,-1.0*F)
-        roz=[Punkt(i*ds,x,sigma[:i]) for x,i in zip(sigma,range(len(sigma)))]
+        roz=[Punkt(i*ds,y,sigma[:i]) for y,i in zip(sigma,range(len(sigma)))]
         for i in range(1,len(sigma)-1):
             sigma[i]=sigma[i]+x[i-1]
         error=np.amax(abs(x))
