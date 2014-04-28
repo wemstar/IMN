@@ -16,13 +16,13 @@ class Punkt:
     def X(self,sig):
         suma=0
         for x in sig:
-            suma+=cos(x)
+            suma+=cos(x)*0.005
         return suma
 
     def Y(self,sig):
         suma=0
         for x in sig:
-            suma+=sin(x)
+            suma+=sin(x)*0.005
         return suma
 
     def __str__(self):

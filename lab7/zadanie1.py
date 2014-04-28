@@ -10,18 +10,18 @@ class Point:
         self.E = E
 
     def __str__(self):
-        return "{0.x:0.20f} {0.mi:0.20f} {0.E:0.20f}\n".format(self)
+        return "{0.x:0.20f} {0.mi:0.20f} {0.E:0.20f}".format(self)
 
 
 def zadanie1():
     roz = rozwiaz(4.0, 0.01)
     with open("Zadanie1.txt", "w") as fp:
         for r in roz:
-            fp.write("{0}".format(r))
+            fp.write("{0} 0.0 \n".format(r))
     roz = rozwiaz2(4.0, 0.01)
     with open("Zadanie1.2.txt", "w") as fp:
         for r in roz:
-            fp.write("{0}".format(r))
+            fp.write("{0} \n".format(r))
 
 
 def V(x):
