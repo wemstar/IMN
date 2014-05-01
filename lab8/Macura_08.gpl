@@ -7,7 +7,8 @@ set output 'Zad1a.jpeg'
 set pm3d map
 set size square
 
-splot 'Zadanie1.txt' u 1:2:3 with pm3d 
+set pm3d map
+splot 'Zadanie1.txt' u 1:2:3
 
 
 
