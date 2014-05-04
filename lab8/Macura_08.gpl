@@ -19,5 +19,6 @@ set output 'Zad2b.jpeg'
 splot 'Zadanie2Poch.txt' u 1:2:3
 
 #Zadanie 2
-
+set output 'Zad3a.jpeg'
+splot 'Zadanie1_1.95.txt' u 1:2:3
 #Zadanie 3

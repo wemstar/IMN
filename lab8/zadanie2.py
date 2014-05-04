@@ -17,7 +17,7 @@ def zadanie2(matrix):
         dokladny(i,j)=potencjalFun(i,j);
     }
         """
-    weave.inline(code,['matrix','m','n','dokladny','potencjal'],support_code=support)
+    weave.inline(code,['matrix','m','n','dokladny','potencjal'],type_converters=converters.blitz,support_code=support)
 
     with open("Zadanie2Poch.txt","w") as fp1:
         (m, n) = matrix.shape

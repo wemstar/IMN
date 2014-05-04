@@ -1,5 +1,4 @@
 import numpy as np
-from math import exp, sqrt
 from scipy import weave
 from scipy.weave import converters
 
@@ -46,15 +45,9 @@ for(int i=1;i<m-1;i++)
                 matrix(i + 1,j) + matrix(i - 1,j) + matrix(i,j + 1) + matrix(i,j - 1) + ro) * 0.25;
     }
 """
-    weave.inline(code2,['matrix','m','n','omega'])
+    weave.inline(code2,['matrix','m','n','omega'],type_converters=converters.blitz)
     return matrix
 
-
-
-
-
-def ro(x, y):
-    return exp(-((sqrt((x * 0.1) ** 2.0 + (y * 0.1) ** 2) - 2.0) ** 2.0))
 
 
 def a(matrix):
@@ -76,7 +69,7 @@ for(int i=1;i<m-1;++i)
 }
 return_val = suma;
 """
-    err=weave.inline(code,['matrix','m','n'])
+    err=weave.inline(code,['matrix','m','n'],type_converters=converters.blitz)
     return err
 
 
