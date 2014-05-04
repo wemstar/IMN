@@ -14,8 +14,8 @@ import zadanie3
 
 
 def main():
-    zadanie1.zadanie1()
-    zadanie2.zadanie2()
+    matrix=zadanie1.zadanie1()
+    zadanie2.zadanie2(matrix)
     zadanie3.zadanie3()
     call(["gnuplot", "Macura_08.gpl"])
 

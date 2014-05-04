@@ -4,16 +4,19 @@ set term jpeg
 
 #Zadanie1
 set output 'Zad1a.jpeg'
-plot 'Zadanie1_0.25iter.txt' u 1:2 w l title 'ω=0.25'
+plot 'Zadanie1_1.95_iter.txt' u 1:2 w l title 'ω=0.25'
 set output 'Zad1b.jpeg'
 set pm3d map
 set size square
 
 set pm3d map
-splot 'Zadanie1_025.txt' u 1:2:3
+splot 'Zadanie1_1.95.txt' u 1:2:3
 
+set output 'Zad2a.jpeg'
+splot 'Zadanie2Dok.txt' u 1:2:3
 
-
+set output 'Zad2b.jpeg'
+splot 'Zadanie2Poch.txt' u 1:2:3
 
 #Zadanie 2
 

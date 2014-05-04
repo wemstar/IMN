@@ -76,7 +76,7 @@ for(int i=1;i<m-1;++i)
 }
 return_val = suma;
 """
-    err=weave.inline(code,['matrix','m','n'],type_converters=converters.blitz)
+    err=weave.inline(code,['matrix','m','n'])
     return err
 
 
