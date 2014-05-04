@@ -46,7 +46,7 @@ for(int i=1;i<m-1;i++)
                 matrix(i + 1,j) + matrix(i - 1,j) + matrix(i,j + 1) + matrix(i,j - 1) + ro) * 0.25;
     }
 """
-    weave.inline(code2,['matrix','m','n','omega'],type_converters=converters.blitz)
+    weave.inline(code2,['matrix','m','n','omega'])
     return matrix
 
 
