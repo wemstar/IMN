@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ro",
+				"roTab"
+			],
+			[
+				"po",
+				"potencjal"
+			],
+			[
+				"t",
+				"trzeci"
+			],
+			[
 				"function",
 				"function1"
 			],
@@ -28,18 +40,43 @@
 	"buffers":
 	[
 		{
-			"file": "lab4/Macura_04.py",
+			"contents": "#include <cstdlib>\n#include <cstdio>\n#include <cmath>\n#include <cstring>\n#include \"mpi.h\"\n#define SIMPLE_SPRNG    /* simple interface                        */\n#define USE_MPI\n#define SIMPLE_SPRNG		/* simple interface                        */\n#define USE_MPI			/* MPI version of SPRNG                    */\n#include \"sprng_cpp.h\"\n#define SEND_TAG 123\nusing namespace std;\nint chodeExit(int myid,int nprocs);\nint main(int argc, char *argv[])\n{\n\n	MPI_Init(&argc,&argv);	/* Initialize MPI                          */\n	int nprocs,myid;\n	int segment[5];\n	bool arrival;\n	int wait_cnt=0;\n	int arrival_cnt=0;\n	int arrival_sum,exit_sum,queue_sum;\n	int queue=0;\n	int queue_accum=0;\n	int exit_cnt=0;\n	int n=100000;\n	double pwd=0.4;\n	if(argc >2)\n	{\n		sscanf(argv[1], \"%d\", &n);\n		sscanf(argv[2], \"%f\", &pwd);\n	}\n	for (int i = 0; i < 5; ++i)\n	{\n		segment[i]=-1;\n	}\n\n	MPI_Status status;\n	int seed = make_sprng_seed();	\n  	MPI_Comm_size(MPI_COMM_WORLD,&nprocs); /* Find number of processes       */\n  	MPI_Comm_rank(MPI_COMM_WORLD,&myid); /* Find rank of process             */\n\n  	init_sprng(seed,CRAYLCG, 2);	/* initialize stream               */\n\n    for (int i = 0; i < n; ++i)\n	{\n		if(sprng()<pwd)\n		{\n			arrival=true;\n			arrival_cnt++;\n		}\n		else\n		{\n			arrival=false;\n		}\n		MPI_Send(segment, 1, MPI_INT, (myid+1)%nprocs, SEND_TAG, MPI_COMM_WORLD); \n		for (int i = 0; i < 4; ++i)\n		{\n			segment[i]=segment[i+1];\n		}\n		MPI_Recv(segment+4, 1, MPI_INT, (myid-1+nprocs)%nprocs, SEND_TAG,MPI_COMM_WORLD, &status);\n		if(segment[2]==myid)\n		{\n			exit_cnt++;\n			segment[2]=-1;\n		}\n		if(segment[2] == -1)\n		{\n			if(queue>0)\n			{\n				queue--;\n				segment[2]=chodeExit(myid,nprocs);\n			}\n			else if(arrival)\n			{\n				arrival=0;\n				segment[2]=chodeExit(myid,nprocs);\n			}\n		}\n		if(arrival)\n		{\n			wait_cnt++;\n			queue++;\n		}\n\n	\n		\n	}\n\n	printf(\"Proces numer: %d Czekało: %d Przybyło:%d Kolejka %d Opuściło: %d \\n\", myid,wait_cnt,arrival_cnt,queue,exit_cnt);\n	MPI_Reduce(&arrival_cnt,&arrival_sum,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);\n	MPI_Reduce(&exit_cnt,&exit_sum,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);\n	MPI_Reduce(&queue,&queue_sum,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);\n	if(myid==0)\n	{\n		printf(\"Ogołem przybyło %d opuściło %d w kolejce %d na rondzie %d\\n\",arrival_sum,exit_sum,queue_sum,arrival_sum-(exit_sum+queue_sum)  );\n	}\n    MPI_Finalize();	\n}\n\nint chodeExit(int myid,int nprocs)\n{\n	double count=1.0/(double)nprocs;\n	double exitNumber=sprng();\n	int exitProces;\n	for(int i=1;i<=nprocs;++i)\n	{\n		if(exitNumber<count*i)\n		{\n			exitProces=i-1;\n			break;\n		}\n	}\n	\n	return exitProces;\n}\n",
+			"file": "/home/studa1/i1macura/PRiR/projekt.cpp",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 7028,
+				"buffer_size": 2567,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lab4/Macura_04.gpl",
+			"contents": "//mpiexec -f nodes -n $(( `cat nodes|wc -l`)) ./proj 100000 0.5\n\n\nProces numer: 2 Wait: 50209 Przybyło:50213 Kolejka 30513 Opuściło: 19697 \nProces numer: 6 Wait: 50182 Przybyło:50184 Kolejka 29990 Opuściło: 20189 \nProces numer: 0 Wait: 50071 Przybyło:50073 Kolejka 30199 Opuściło: 19872 \nProces numer: 7 Wait: 49907 Przybyło:49911 Kolejka 29806 Opuściło: 20098 \nProces numer: 4 Wait: 49954 Przybyło:49956 Kolejka 30054 Opuściło: 19900 \nProces numer: 1 Wait: 50173 Przybyło:50178 Kolejka 29905 Opuściło: 20267 \nProces numer: 8 Wait: 49942 Przybyło:49948 Kolejka 30132 Opuściło: 19811 \nOgołem przybyło 450864 opuściło 179724 w kolejce 271095 na rondzie 45\nProces numer: 5 Wait: 50250 Przybyło:50255 Kolejka 30521 Opuściło: 19729 \nProces numer: 3 Wait: 50142 Przybyło:50146 Kolejka 29975 Opuściło: 20161 \n\n\n//mpiexec -f nodes -n $(( `cat nodes|wc -l`)) ./proj 100000 0.3\n\nProces numer: 2 Wait: 49990 Przybyło:49994 Kolejka 29948 Opuściło: 20039 \nProces numer: 1 Wait: 49981 Przybyło:49986 Kolejka 30049 Opuściło: 19930 \nProces numer: 6 Wait: 50246 Przybyło:50251 Kolejka 30196 Opuściło: 20049 \nProces numer: 0 Wait: 49735 Przybyło:49739 Kolejka 29708 Opuściło: 20030 \nProces numer: 5 Wait: 49889 Przybyło:49891 Kolejka 29877 Opuściło: 20011 \nProces numer: 7 Wait: 50022 Przybyło:50027 Kolejka 30035 Opuściło: 19983 \nProces numer: 8 Wait: 49816 Przybyło:49817 Kolejka 29778 Opuściło: 20037 \nProces numer: 3 Wait: 50017 Przybyło:50021 Kolejka 30145 Opuściło: 19869 \nOgołem przybyło 449858 opuściło 179807 w kolejce 270006 na rondzie 45\nProces numer: 4 Wait: 50130 Przybyło:50132 Kolejka 30270 Opuściło: 19859 \n\n",
+			"file": "/home/studa1/i1macura/PRiR/przykład.txt",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 4054,
+				"buffer_size": 1606,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "all:\n	mpicxx -o proj projekt.cpp -Iinclude -Llib -lsprng\nrun:\n	mpiexec -n 4 ./proj $(ARGS)\n\n",
+			"file": "/home/studa1/i1macura/PRiR/Makefile",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 92,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lab8/Macura_08.gpl",
+			"settings":
+			{
+				"buffer_size": 907,
 				"line_ending": "Unix"
 			}
 		}
@@ -47,17 +84,38 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 138.0,
 		"selected_items":
 		[
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"git a",
+				"Git: Add Current File"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 392.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 139.0,
 		"history":
 		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
 	"distraction_free":
@@ -71,9 +129,42 @@
 	},
 	"file_history":
 	[
+		"/home/studa1/i1macura/IMN/lab8/Macura_08.py",
+		"/home/studa1/i1macura/IMN/lab8/zadanie2.py",
+		"/home/studa1/i1macura/IMN/lab8/zadanie3.py",
+		"/home/studa1/i1macura/IMN/lab8/zadanie1.py",
+		"/home/studa1/i1macura/IMN/lab8/Zad3a.jpeg",
+		"/home/studa1/i1macura/IMN/lab8/Zad1b.jpeg",
+		"/home/studa1/i1macura/IMN/lab8/Zad1a.jpeg",
+		"/home/studa1/i1macura/IMN/lab8/Macura_08.gpl",
+		"/home/studa1/i1macura/IMN/lab8/Zadanie1.txt",
+		"/home/studa1/i1macura/IMN/lab7/Macura_07.gpl",
+		"/home/studa1/i1macura/IMN/lab7/zadanie2.py",
+		"/home/studa1/i1macura/IMN/lab7/zadanie1.py",
+		"/home/studa1/i1macura/IMN/lab7/Macura_07.py",
+		"/home/studa1/i1macura/IMN/lab7/Zadanie1.txt",
+		"/home/studa1/i1macura/.bashrc",
+		"/home/studa1/i1macura/IMN/lab6/relaksacji.py",
+		"/home/studa1/i1macura/IMN/lab6/zadanie4.py",
+		"/home/studa1/i1macura/IMN/lab6/zadanie3.py",
+		"/home/studa1/i1macura/IMN/lab6/zadanie2.py",
+		"/home/studa1/i1macura/IMN/Macura_06/zadanie6.py",
+		"/home/studa1/i1macura/IMN/lab5/Macura_05.py",
+		"/home/studa1/i1macura/IMN/lab3/Macura_03.py",
+		"/home/studa1/i1macura/IMN/lab6/zadanie6.py",
+		"/home/studa1/i1macura/IMN/lab6/Macura_06.gpl",
+		"/home/studa1/i1macura/IMN/lab6/Macura_06.py",
+		"/home/studa1/i1macura/IMN/lab6/Zadanie6.txt",
+		"/home/studa1/i1macura/IMN/lab6/zadanie5.py",
+		"/home/studa1/i1macura/IMN/lab6/zadanie1.py",
+		"/home/studa1/i1macura/IMN/lab5/Macura_05.gpl",
+		"/home/studa1/i1macura/IMN/lab5/zadanie2.py",
+		"/home/studa1/i1macura/IMN/lab5/zadanie3.py",
+		"/home/studa1/i1macura/IMN/lab5/Zad3.txt",
+		"/home/studa1/i1macura/IMN/lab4/Macura_04.gpl",
+		"/home/studa1/i1macura/IMN/lab4/Macura_04.py",
 		"/home/studa1/i1macura/IMN/lab4/Zadanie1.1.txt",
 		"/home/studa1/i1macura/IMN/lab4/Zadanie2.2.txt",
-		"/home/studa1/i1macura/IMN/lab3/Macura_03.py",
 		"/home/studa1/i1macura/IMN/lab3/Macura_03.gpl",
 		"/home/studa1/i1macura/IMN/A2/lab02.p",
 		"/home/studa1/i1macura/IMN/A2/lab02.py",
@@ -106,6 +197,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1.95",
+			"ta",
+			"lab6.",
+			"lab6",
 			"12",
 			"Zależność",
 			"%f",
@@ -137,29 +232,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "lab4/Macura_04.py",
+					"file": "/home/studa1/i1macura/PRiR/projekt.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7028,
+						"buffer_size": 2567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6981,
-								6981
+								1710,
+								1710
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1326.0,
+						"translation.y": 1164.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -167,19 +261,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "lab4/Macura_04.gpl",
+					"file": "/home/studa1/i1macura/PRiR/przykład.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4054,
+						"buffer_size": 1606,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2812,
-								2812
+								1605,
+								1605
 							]
 						],
 						"settings":
@@ -187,10 +281,66 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 272.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/studa1/i1macura/PRiR/Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 92,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								90,
+								90
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lab8/Macura_08.gpl",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								709,
+								709
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -229,11 +379,15 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 112.0
+		"height": 132.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 112.0
 	},
 	"project": "IMN.sublime-project",
 	"replace":
@@ -272,7 +426,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 273.0,
+	"side_bar_width": 187.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

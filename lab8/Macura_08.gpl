@@ -29,4 +29,12 @@ splot 'Zadanie2Dok.txt' u 1:2:3
 set title 'Odtworzona numerycznie'
 set output 'Zad2b.jpeg'
 splot 'Zadanie2Poch.txt' u 1:2:3
+<<<<<<< HEAD
 #Zadanie 3
+=======
+
+#Zadanie 2
+set output 'Zad3a.jpeg'
+splot 'Zadanie1_1.95.txt' u 1:2:3
+#Zadanie 3
+>>>>>>> ea90c131e7ba4be9c2b270a5181761a39ea6393a

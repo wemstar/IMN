@@ -18,6 +18,7 @@ def zadanie3():
         with open(file.format(str(omega)+"_iter"),"w") as fp:
             for i,x in enumerate(pa):
                 fp.write("{0:0.20f} {1:0.20f}\n".format(i,x))
+<<<<<<< HEAD
     return matrix,tabRo
 
 
@@ -39,9 +40,7 @@ def metoda(matrix, omega,roTab):
     (m, n) = matrix.shape
     newMatrix = np.zeros((121, 121))
     newMatrix[1:-1,1:-1]=((1-omega)*matrix[1:-1,1:-1]+omega*0.25*(matrix[:-2,1:-1]+matrix[2:,1:-1]+matrix[1:-1,:-2]+matrix[1:-1,2:]+roTab[1:-1,1:-1]))
-    # for i in range(1,m-1):
-    #     for j in range(1,n-1):
-    #         newMatrix[i][j]=(1-omega)*matrix[i][j]+omega*0.25*(matrix[i-1][j]+matrix[i+1][j]+matrix[i][j+1]+matrix[i][j-1]+roTab[i][j])
+
 
     return newMatrix 
 def generateRo():
@@ -63,6 +62,7 @@ def ro(x, y):
 def a(matrix,roTab): 
     return np.sum((((matrix[2:,1:-1]-matrix[:-2,1:-1])*0.5)**2.0+((matrix[1:-1,2:]-matrix[1:-1,:-2])*0.5)**2.0)*0.5-matrix[1:-1,1:-1]*roTab[1:-1,1:-1])
     
+
 
 
 

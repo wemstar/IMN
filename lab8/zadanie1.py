@@ -1,6 +1,11 @@
 import numpy as np
+<<<<<<< HEAD
 from math import exp, sqrt
 
+=======
+from scipy import weave
+from scipy.weave import converters
+>>>>>>> ea90c131e7ba4be9c2b270a5181761a39ea6393a
 
 
 
@@ -37,12 +42,27 @@ def polason(omega,roTab):
 
 def metoda(matrix, omega,roTab):
     (m, n) = matrix.shape
+<<<<<<< HEAD
 
     #matrix[1:-1,1:-1]=((1-omega)*matrix[1:-1,1:-1]+omega*0.25*(matrix[:-2,1:-1]+matrix[2:,1:-1]+matrix[1:-1,:-2]+matrix[1:-1,2:]+roTab[1:-1,1:-1]))
     for i in range(1,m-1):
         for j in range(1,n-1):
             matrix[i][j]=(1-omega)*matrix[i][j]+omega*0.25*(matrix[i-1][j]+matrix[i+1][j]+matrix[i][j+1]+matrix[i][j-1]+roTab[i][j])
 
+=======
+    code2="""
+for(int i=1;i<m-1;i++)
+    for(int j=1;j<n-1;j++)
+    {
+        double x=pow((i-60) * 0.1,2.0);
+        double y=pow((j-60) * 0.1,2.0);
+        double ro=exp(-pow(sqrt( x+y)-2.0  ,2.0));
+        matrix(i,j)=(1 - omega) * matrix(i,j)+ omega * (
+                matrix(i + 1,j) + matrix(i - 1,j) + matrix(i,j + 1) + matrix(i,j - 1) + ro) * 0.25;
+    }
+"""
+    weave.inline(code2,['matrix','m','n','omega'],type_converters=converters.blitz)
+>>>>>>> ea90c131e7ba4be9c2b270a5181761a39ea6393a
     return matrix
 def generateRo():
 
@@ -54,6 +74,7 @@ def generateRo():
     return tabRo
 
 
+<<<<<<< HEAD
 
 
 def ro(x, y):
@@ -71,6 +92,29 @@ def a(matrix,roTab):
     #         suma+=0.5*(pochodnax*pochodnax +pochodnay*pochodnay)-trzeci
     return np.sum((((matrix[2:,1:-1]-matrix[:-2,1:-1])*0.5)**2.0+((matrix[1:-1,2:]-matrix[1:-1,:-2])*0.5)**2.0)*0.5-matrix[1:-1,1:-1]*roTab[1:-1,1:-1])
     
+=======
+def a(matrix):
+    (m, n) = matrix.shape
+    code="""
+double pochodnax,pochodnay,trzeci,err=0.0,suma=0,ro;
+for(int i=1;i<m-1;++i)
+{
+    for(int j=1;j<n-1;++j)
+    {
+        pochodnax=(matrix(i+1,j)-matrix(i-1,j))*0.5;
+        pochodnay=(matrix(i,j+1)-matrix(i,j-1))*0.5;
+        double x=pow((i-60) * 0.1,2.0);
+        double y=pow((j-60) * 0.1,2.0);
+        ro=exp(-pow(sqrt( x+y)  -2.0,2.0));
+        trzeci=matrix(i,j)*ro;
+        suma+=(0.5*(pochodnax*pochodnax +pochodnay*pochodnay)-trzeci);
+    }
+}
+return_val = suma;
+"""
+    err=weave.inline(code,['matrix','m','n'],type_converters=converters.blitz)
+    return err
+>>>>>>> ea90c131e7ba4be9c2b270a5181761a39ea6393a
 
 
 
