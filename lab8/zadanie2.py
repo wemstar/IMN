@@ -1,24 +1,14 @@
 import numpy as np
-from scipy import weave
-from scipy.weave import converters
 
-def zadanie2(matrix):
+
+def zadanie2(matrix,dokladny):
     potencjal = np.zeros((121, 121))
-    dokladny=np.zeros((121, 121))
     (m, n) = matrix.shape
 
-    code = """
-    for(int i=1;i<m-1;i++)
-    for(int j=1;j<n-1;j++)
-    {
-        double pochodnax=(matrix(i+1,j)-2.0*matrix(i,j)+matrix(i-1,j));
-        double pochodnay=(matrix(i,j+1)-2.0*matrix(i,j)+matrix(i,j-1));
-        potencjal(i,j)=(pochodnax*pochodnax +pochodnay*pochodnay);
-        dokladny(i,j)=potencjalFun(i,j);
-    }
-        """
-    weave.inline(code,['matrix','m','n','dokladny','potencjal'],support_code=support)
-
+    
+    (m, n) = matrix.shape
+ 
+    potencjal[1:-1,1:-1]=-((matrix[2:,1:-1]-2.0*matrix[1:-1,1:-1]+matrix[:-2,1:-1])+(matrix[1:-1,2:]-2.0*matrix[1:-1,1:-1]+matrix[1:-1,:-2]))
     with open("Zadanie2Poch.txt","w") as fp1:
         (m, n) = matrix.shape
         for i in range(m):
@@ -35,11 +25,3 @@ def zadanie2(matrix):
                 fp2.write("{0:0.20f} {1:0.20f} {2:0.20f} \n".format(i - 60, j - 60, dokladny[i][j]))
 
             fp2.write("\n")
-support="""
-double potencjalFun(double i,double j)
-{
-    double x=pow((i-60) * 0.1,2.0);
-    double y=pow((j-60) * 0.1,2.0);
-    return exp(-pow(sqrt( x+y)  -2.0,2.0));
-}
-"""
