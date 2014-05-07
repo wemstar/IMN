@@ -1,0 +1,13 @@
+set term jpeg
+
+
+set logscale x
+set output 'Zad1a.jpeg'
+plot 'Zadanie1.2.txt' u 1:2 w lp pt 7
+set nologscale x
+set size square
+set pm3d map
+set palette rgb 36,0,-36;
+
+set output 'Zad1b.jpeg'
+splot 'Zadanie1.1.txt' u 1:2:3
