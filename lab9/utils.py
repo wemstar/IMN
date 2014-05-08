@@ -20,5 +20,9 @@ def metoda(matrix,k):
 
 
 def a(matrix,k):
-    return np.sum((matrix[2*k::k,k:-k:k]+matrix[2*k::k,2*k::k]-matrix[k:-k:k,k:-k:k]-matrix[k:-k:k,2*k::k])**2.0+
-    (matrix[k:-k:k,2*k::k]+matrix[2*k::k,2*k::k]-matrix[k:-k:k,k:-k:k]-matrix[2*k::k,k:-k:k])**2.0)/8.0
+    return np.sum((matrix[k::k,:-k:k]+matrix[k::k,k::k]-matrix[:-k:k,:-k:k]-matrix[:-k:k,k::k])**2.0+
+    (matrix[:-k:k,k::k]+matrix[k::k,k::k]-matrix[:-k:k,:-k:k]-matrix[k::k,:-k:k])**2.0)/16.0
+def newPoints(matrix,k):
+    matrix[k/2:-k/2:k,::k]=(matrix[:-k:k,::k]+matrix[k::k,::k])*0.5
+    matrix[::k,k/2:-k/2:k]=(matrix[::k,:-k:k]+matrix[::k,k::k])*0.5
+    matrix[k/2:-k/2:k,k/2:-k/2:k]=(matrix[:-k:k,:-k:k]+matrix[k::k,:-k:k]+matrix[:-k:k,k::k]+matrix[k::k,k::k])*0.25

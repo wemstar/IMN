@@ -4,7 +4,11 @@ set term jpeg
 set logscale x
 set output 'Zad1a.jpeg'
 plot 'Zadanie1.2.txt' u 1:2 w lp pt 7
+
+
 set nologscale x
+set output 'Zad2b.jpeg'
+plot 'Zadanie2.2.txt' u 1:2 w lp pt 7
 set size square
 set pm3d map
 set palette defined (-1.5 "blue", 0 "white", 1.5 "red")
