@@ -7,7 +7,11 @@ plot 'Zadanie1.2.txt' u 1:2 w lp pt 7
 set nologscale x
 set size square
 set pm3d map
-set palette rgb 36,0,-36;
-
+set palette defined (-1.5 "blue", 0 "white", 1.5 "red")
+set xrange [-2.4:2.4]
+set yrange [-2.4:2.4]
 set output 'Zad1b.jpeg'
 splot 'Zadanie1.1.txt' u 1:2:3
+
+set output 'Zad2a.jpeg'
+splot 'Zadanie2.1.txt' u 1:2:3
