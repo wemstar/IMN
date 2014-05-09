@@ -17,9 +17,10 @@ def zadanie2():
                 for j in range(0,n,k):
                     fp.write("{0:0.20f} {1:0.20f} {2:0.20f}\n".format(utils.rzutuj(i),utils.rzutuj(j),matrix[i][j]))
                 fp.write("\n")
-        if k ==1:
-            break
-        utils.newPoints(matrix,k)
+        if k !=1:
+            utils.newPoints(matrix,k)
+
+
     with open("Zadanie2.2.txt","w") as fp:
-        for i,x in enumerate(pa):
-            fp.write("{0:0.20f} {1:0.20f}\n".format(i+1,x))
+        for i,x in enumerate(pa[1:]):
+            fp.write("{0:0.20f} {1:0.20f}\n".format(i,x))
