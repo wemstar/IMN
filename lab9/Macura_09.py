@@ -13,7 +13,7 @@ import zadanie2
 
 
 def main():
-    zadanie1.zadanie1()
+    # zadanie1.zadanie1()
     zadanie2.zadanie2()
 
     call(["gnuplot", "Macura_09.gpl"])
