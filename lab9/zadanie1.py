@@ -17,7 +17,7 @@ def zadanie1():
             fp.write("\n")
     with open("Zadanie1.2.txt","w") as fp:
         for i,x in enumerate(pa):
-            fp.write("{0:0.20f} {1:0.20f}\n".format(i,x))
+            fp.write("{0:0.20f} {1:0.20f}\n".format(i+1,x))
 
 
 

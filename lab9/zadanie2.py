@@ -22,5 +22,5 @@ def zadanie2():
 
 
     with open("Zadanie2.2.txt","w") as fp:
-        for i,x in enumerate(pa[1:]):
-            fp.write("{0:0.20f} {1:0.20f}\n".format(i,x))
+        for i,x in enumerate(pa):
+            fp.write("{0:0.20f} {1:0.20f}\n".format(i+1,x))

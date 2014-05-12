@@ -25,7 +25,7 @@ def metoda(matrix, k):
                 matrix[i][j]=(matrix[i-k][j]+matrix[i][j-k]+matrix[i+k][j]+matrix[i][j+k])/4.0
         pu.append(a(matrix, k))
         error = abs(pu[-1] - pu[-2])
-    return pu
+    return pu[1:]
 
 
 def a(matrix, k):
@@ -41,10 +41,19 @@ def newPoints(matrix, k):
     #                                                                                                              k::k]) * 0.25
     (m,n)=matrix.shape
     nk=int(k/2)
-    for i in range(nk,m-nk,k):
-        for j in range(0,n,k):
-            matrix[i][j]=(matrix[i-nk][j]+matrix[i+nk][j])/2.0
-            matrix[j][i]=(matrix[j][i-nk]+matrix[j][i+nk])/2.0
-    for i in range(nk,m-nk,k):
-        for j in range(nk,m-nk,k):
-            matrix[i][j]=(matrix[i-nk][j]+matrix[i+nk][j]+matrix[i][j-nk]+matrix[i][j+nk])/4.0
+    for i in range(nk,m-nk,nk):
+        for j in range(nk,m-nk,nk):
+            if (j % k) !=0:
+                if (i % k) !=0:
+                    matrix[i][j]=(matrix[i+nk][j+nk]+matrix[i+nk][j-nk]+matrix[i-nk][j-nk]+matrix[i-nk][j+nk])/4.0
+                else:
+                    matrix[i][j]=(matrix[i][j+nk]+matrix[i][j-nk])*0.5
+            elif (i%k)!=0:
+                matrix[i][j]=(matrix[i+nk][j]+matrix[i-nk][j])*0.5
+
+
+    # for i in range(nk,m-nk,k):
+    #     for j in range(nk,m-nk,k):
+    #         matrix[i][j]=(matrix[i-nk][j]+matrix[i+nk][j]+matrix[i][j-nk]+matrix[i][j+nk])/4.0
+
+    # print(matrix)
