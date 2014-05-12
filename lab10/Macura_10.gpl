@@ -1,0 +1,9 @@
+set term jpeg
+
+
+
+
+
+set size square
+set pm3d map
+set palette defined (-1.5 "blue", 0 "white", 1.5 "red")
