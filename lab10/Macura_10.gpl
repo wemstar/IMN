@@ -1,9 +1,38 @@
 set term jpeg
-
-
-
-
-
 set size square
-set pm3d map
-set palette defined (-1.5 "blue", 0 "white", 1.5 "red")
+
+#zad 1
+set out "Zad1b.jpeg"
+set contour
+set cntrparam levels 30
+unset surface
+unset key
+set view 0,0
+set xrange [0:240]
+set yrange [0:80]
+splot "Zadanie1.1.txt" u 1:2:3 w l t "linie strumienia cieczy"
+
+reset
+
+set term jpeg
+set out 'Zad1a.jpeg'
+set logscale x
+plot "Zadanie1.2.txt" u 1:2 w lp pt 7
+reset
+#zad 2
+set out "Zad2b.jpeg"
+set contour
+set cntrparam levels 30
+unset surface
+unset key
+set view 0,0
+set xrange [0:240]
+set yrange [0:80]
+splot "Zadanie2.1.txt" u 1:2:3 w l t "linie strumienia cieczy"
+
+reset
+
+set term jpeg
+set out 'Zad2a.jpeg'
+set logscale x
+plot "Zadanie2.2.txt" u 1:2 w lp pt 7

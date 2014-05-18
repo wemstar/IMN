@@ -1,3 +1,3 @@
 __author__ = 'wemstar'
-def zdanie3():
+def zadanie3():
     pass
