@@ -1,7 +1,7 @@
 __author__ = 'wemstar'
 import utils
 import numpy as np
-
+from sys import stdout
 def initialize():
     matrix=np.zeros((241,81))
 
@@ -21,11 +21,14 @@ def initialize():
 def metoda(matrix):
     error=1
     pa=[utils.a(matrix,1)]
-    # while error >0.000001:
-    for i in range(1000):
+    while error >0.000001:
+    # for i in range(1000):
         utils.iterate(matrix)
         pa.append(utils.a(matrix,1))
         error=abs(pa[-1]-pa[-2])
+        stdout.write("\r{0:0.20f}    ".format(error))
+        stdout.flush()
+    print(" ")
     return pa
 
 def zadanie1():
