@@ -40,3 +40,4 @@ def zadanie1():
     with open("Zadanie1.2.txt","w") as fp:
         for x,e in enumerate(pa):
             fp.write("{0:0.20f} {1:0.20f}\n".format(x,e))
+    return matrix

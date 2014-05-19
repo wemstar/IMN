@@ -12,32 +12,37 @@ def initialize():
 
     return matrix
 def prepareMatrix(matrix):
-    matrix[:101,0]=matrix[:101,1]
-    matrix[141:,0]=matrix[141:,1]
+    # Doł
+    matrix[:99,0]=matrix[:99,1]
+    matrix[139:,0]=matrix[139:,1]
+    # Góra
+    matrix[:99,80]=matrix[:99,79]
+    matrix[139:,80]=matrix[139:,79]
+    # przeszkoda dolna
+    matrix[140,:19]=matrix[139,:19]
+    matrix[100,:19]=matrix[101,:19]
+    matrix[100:141,19]=matrix[100:141,20]
+    # przeskoda gorna
+    matrix[140,62:]=matrix[141,62:]
+    matrix[100,62:]=matrix[99,62:]
+    matrix[100:141,62]=matrix[100:141,63]
 
-    matrix[141,:19]=matrix[142,:19]
-    matrix[101,:19]=matrix[100,:19]
-    matrix[101:142,19]=matrix[101:142,20]
-
-    matrix[141,63:]=matrix[142,63:]
-    matrix[101,63:]=matrix[100,63:]
-    matrix[101:142,63]=matrix[101:142,64]
-
-    matrix[101,63]=(matrix[100,63]+matrix[101,62])/2.0
-    matrix[141,63]=(matrix[142,63]+matrix[101,62])/2.0
-    matrix[101,19]=(matrix[100,19]+matrix[101,20])/2.0
-    matrix[141,19]=(matrix[142,19]+matrix[101,20])/2.0
+    matrix[100,62]=(matrix[99,62]+matrix[100,61])/2.0
+    matrix[140,62]=(matrix[141,62]+matrix[140,61])/2.0
+    matrix[100,18]=(matrix[99,18]+matrix[100,19])/2.0
+    matrix[140,18]=(matrix[141,18]+matrix[100,19])/2.0
 
 
 def metoda(matrix):
     error=1
     pa=[utils.a(matrix,1)]
     # while error >0.000001:
-    for i in range(1000):
+    for i in range(5000):
         prepareMatrix(matrix)
         utils.iterate(matrix)
         pa.append(utils.a(matrix,1))
         error=abs(pa[-1]-pa[-2])
+        print("{0:0.20f}\n".format(error))
     return pa
 
 def zadanie2():

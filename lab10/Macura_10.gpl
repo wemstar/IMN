@@ -36,3 +36,4 @@ set term jpeg
 set out 'Zad2a.jpeg'
 set logscale x
 plot "Zadanie2.2.txt" u 1:2 w lp pt 7
+ set nologscale x
