@@ -1,18 +1,9 @@
 #include "utils.hpp"
 using namespace std;
 
-double strum(double j)
-{
-	double y=j*0.01;
-	return -((y*y*y)/2.0-(y*y)*0.9/2.0);
-}
-double wir(double j)
-{
-	double y=j*0.01;
-	return -(2.0*y-0.9);
-}
 
-void zapisz(string file,double strumen[301][91],double wirowosc[301][91],int n,int m)
+
+void zapisz(string file,double strumen[301][91],double wirowosc[301][91],double predkosc[91],int n,int m)
 {
 	ofstream fileStrum((file + "Strum" + ".txt").c_str()); 
 	fileStrum.precision(20);	
@@ -24,6 +15,14 @@ void zapisz(string file,double strumen[301][91],double wirowosc[301][91],int n,i
 		fileStrum << j << " " << strumen[100][j] <<" " << strumen[100][j] << " "<< strum(j) << endl;
 	}
 	fileStrum.close();
+	ofstream fileU((file + "U" + ".txt").c_str()); 
+	fileU.precision(20);	
+	fileU.setf(ios::fixed);
+	fileU.setf(ios::showpoint);
+	for(int j=0;j<m;j++)
+	{
+		fileU << j << " " << predkosc[j] <<" " <<pred(j) << endl;
+	}
 }
 
 void generateArray(double strumien[301][91],double wirowsc[301][91],int n,int m)
@@ -50,7 +49,9 @@ void zadanie1()
 
 	double strumien[301][91] ;
 	double wirowsc[901][91] ;
+	double predkosc[91];
 	generateArray(strumien,wirowsc,301,91);
-	iteruj(strumien,wirowsc,N,M,true);
-	zapisz("zadanie1",strumien,wirowsc,N,M);
+	metoda(strumien,wirowsc,N,M,false);
+	predkoscU(predkosc,strumien,M);
+	zapisz("zadanie1",strumien,wirowsc,predkosc,N,M);
 }
