@@ -11,3 +11,5 @@ double strum(double j,double Q=-1.0);
 double wir(double j,double Q=-1.0);
 double pred(double j,double Q=-1.0);
 void predkoscU(double predkosc[91],double strumien[301][91],int m);
+void predkoscU(double predkosc[301][91],double strumien[301][91],int m);
+void predkoscV(double predkosc[301][91],double strumien[301][91],int m);

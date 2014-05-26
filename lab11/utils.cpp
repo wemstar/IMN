@@ -44,19 +44,31 @@ void predkoscU(double predkosc[91],double strumien[301][91],int m)
 		predkosc[j]=(strumien[100][j+1]-strumien[100][j-1])/(0.02);
 	}
 }
-void predkoscV(double predkosc[91],double strumien[301][91],int m)
+void predkoscU(double predkosc[301][91],double strumien[301][91],int m)
 {
+	for(int i=0;i<301;i++)
 	for(int j=1;j<m-1;j++)
 	{
-		predkosc[j]=(strumien[100][j+1]-strumien[100][j-1])/(0.02);
-	}
+		if(!( i >= 90 && i<=101 && j>=50) )
+		predkosc[i][j]=(strumien[i][j+1]-strumien[i][j-1])/(0.02);
+	};
 }
+void predkoscV(double predkosc[301][91],double strumien[301][91],int m)
+{
+	for(int i=1;i<300;i++)
+	for(int j=0;j<m;j++)
+	{
+		if(!( i >= 90 && i<=101 && j>=50) )
+		predkosc[i][j]=(strumien[i+1][j]-strumien[i-1][j])/(0.02);
+	};
+}
+
 void generujWir(double strumien[301][91],double wirowosc[301][91],int n,int m)
 {
 	for(int i=0;i<n;i++)
 	{
 		wirowosc[i][90]=2.0*(strumien[i][89]-strumien[i][90])/(0.01*0.01);
-		wirowosc[i][0]=2.0*(strumien[i][1]-strumien[i][90])/(0.01*0.01);
+		wirowosc[i][0]=2.0*(strumien[i][1]-strumien[i][0])/(0.01*0.01);
 	}
 	for(int j=50;j<m;j++)
 	{

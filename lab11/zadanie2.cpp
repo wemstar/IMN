@@ -19,13 +19,13 @@ void zapisz(string file,double zapis[301][91],int n,int m)
 
 void generateArray(double strumien[301][91],double wirowsc[301][91],int n,int m,double Q)
 {
-		for(int j=0;j<m;j++)
+		for(int j=0;j<=90;j++)
 		{
 			strumien[0][j]=strum(j,Q);
 			wirowsc[0][j]=wir(j,Q);
 			strumien[300][j]=strum(j,Q);
 			wirowsc[300][j]=wir(j,Q);
-		};
+		}
 		for(int i=0;i<n;i++)
 		{
 			strumien[i][0]=strum(0,Q);
@@ -33,6 +33,7 @@ void generateArray(double strumien[301][91],double wirowsc[301][91],int n,int m,
 			strumien[i][90]=strum(90,Q);
 			wirowsc[i][90]=wir(90,Q);
 		}
+
 		for(int j=50;j<m;j++)
 		{
 			strumien[101][j]=strum(90,Q);
@@ -46,16 +47,27 @@ void generateArray(double strumien[301][91],double wirowsc[301][91],int n,int m,
 			wirowsc[i][50]=wir(90,Q);
 		}
 }
+void wykonajZadanie(string filename,double Q)
+{
+	double strumien[301][91] ;
+	double wirowsc[301][91] ;
+	double predkosc[301][91];
+	generateArray(strumien,wirowsc,301,91,Q);
+	metoda(strumien,wirowsc,N,M,true);
+	zapisz(filename,strumien,N,M);
+	predkoscU(predkosc,strumien,91);
+	zapisz(filename+"U",predkosc,N,M);
+	predkoscV(predkosc,strumien,91);
+	zapisz(filename+"V",predkosc,N,M);
+}
 
 
 void zadanie2()
 {
-
-	double strumien[301][91] ;
-	double wirowsc[901][91] ;
-	double predkosc[91];
-	generateArray(strumien,wirowsc,301,91,-1.0);
-	metoda(strumien,wirowsc,N,M,true);
-	zapisz("Zadanie2S",strumien,N,M);
+	wykonajZadanie("Zadanie2.1",-1.0);
+	wykonajZadanie("Zadanie2.100",-100.0);
+	wykonajZadanie("Zadanie2.200",-200.0);
+	wykonajZadanie("Zadanie2.400",-400.0);
+	
 
 }
