@@ -36,7 +36,7 @@ double strum(double j,double Q)
 double wir(double j,double Q)
 {
 	double y=j*0.01;
-	return (2.0*y-0.9)/2.0*Q;
+	return (2.0*y-0.9)*Q/2.0;
 }
 double pred(double j,double Q)
 {
