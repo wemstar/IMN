@@ -90,11 +90,9 @@ void metoda(double strumien[301][91],double wirowosc[301][91],int n,int m,bool t
 		
 		iteruj(strumien,wirowosc,n,m,tryb);
 		if(tryb)generujWir(strumien,wirowosc,n,m);
-		
-
-		
+	
 	}
-	double error=1;
+	double error=1.0;
 	while (error > 0.0000001)
 	{
 		

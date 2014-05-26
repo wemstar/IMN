@@ -51,7 +51,7 @@ void zadanie1()
 	double wirowsc[901][91] ;
 	double predkosc[91];
 	generateArray(strumien,wirowsc,301,91);
-	metoda(strumien,wirowsc,N,M,false);
+	//metoda(strumien,wirowsc,N,M,false);
 	predkoscU(predkosc,strumien,M);
 	zapisz("zadanie1",strumien,wirowsc,predkosc,N,M);
 }
