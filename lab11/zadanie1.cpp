@@ -12,7 +12,7 @@ void zapisz(string file,double strumen[301][91],double wirowosc[301][91],double 
 
 	for(int j=0;j<m;j++)
 	{
-		fileStrum << j << " " << strumen[100][j] <<" " << strumen[100][j] << " "<< strum(j) << endl;
+		fileStrum << j << " " << strumen[100][j] <<" " << strumen[200][j] << " "<< strum(j) << endl;
 	}
 	fileStrum.close();
 	ofstream fileU((file + "U" + ".txt").c_str()); 
@@ -29,17 +29,17 @@ void generateArray(double strumien[301][91],double wirowsc[301][91],int n,int m)
 {
 		for(int j=0;j<m;j++)
 		{
-			strumien[0][j]=strum(j);
-			wirowsc[0][j]=wir(j);
-			strumien[300][j]=strum(j);
-			wirowsc[300][j]=wir(j);
+			strumien[0][j]=strum((double)j);
+			wirowsc[0][j]=wir((double)j);
+			strumien[300][j]=strum((double)j);
+			wirowsc[300][j]=wir((double)j);
 		};
 		for(int i=0;i<n;i++)
 		{
-			strumien[i][0]=strum(0);
-			wirowsc[i][0]=wir(0);
-			strumien[i][90]=strum(90);
-			wirowsc[i][90]=wir(90);
+			strumien[i][0]=strum(0.0);
+			wirowsc[i][0]=wir(0.0);
+			strumien[i][90]=strum(90.0);
+			wirowsc[i][90]=wir(90.0);
 		}
 }
 
@@ -50,6 +50,8 @@ void zadanie1()
 	double strumien[301][91] ;
 	double wirowsc[901][91] ;
 	double predkosc[91];
+	zeruj(strumien);
+	zeruj(wirowsc);
 	generateArray(strumien,wirowsc,301,91);
 	//metoda(strumien,wirowsc,N,M,false);
 	predkoscU(predkosc,strumien,M);
