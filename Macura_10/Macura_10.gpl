@@ -1,0 +1,53 @@
+set term jpeg
+set size square
+
+#zad 1
+set out "Zad1b.jpeg"
+set contour
+set cntrparam levels 30
+unset surface
+unset key
+set view 0,0
+set xrange [0:240]
+set yrange [0:80]
+splot "Zadanie1.1.txt" u 1:2:3 w l t "linie strumienia cieczy"
+
+reset
+
+set term jpeg
+set out 'Zad1a.jpeg'
+set logscale x
+plot "Zadanie1.2.txt" u 1:2 w lp pt 7
+reset
+#zad 2
+set out "Zad2b.jpeg"
+set contour
+set cntrparam levels 50
+unset surface
+unset key
+set view 0,0
+set xrange [0:240]
+set yrange [0:80]
+splot "Zadanie2.1.txt" u 1:2:3 w l 
+
+reset
+
+set term jpeg
+set out 'Zad2a.jpeg'
+set logscale x
+plot "Zadanie2.2.txt" u 1:2 w lp pt 7
+set nologscale x
+unset key
+set pm3d map
+
+set xrange [0:240]
+set yrange [0:80]
+
+set out 'Zad3U.jpeg'
+set palette defined (0 "white", 2.5 "red")
+splot "Zadanie3u.txt" u 1:2:3 
+set palette defined (-2.0 "blue" ,0 "white", 2.0"red")
+set out 'Zad3V.jpeg'
+splot "Zadanie3V.txt" u 1:2:3 
+
+

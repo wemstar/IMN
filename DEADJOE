@@ -1,0 +1,133 @@
+
+*** These modified files were found in JOE when it aborted on Mon Mar 24 17:55:17 2014
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+.git/COMMIT_EDITMSG
+
+*** File '.git/COMMIT_EDITMSG'
+:
+    Merge branch 'master' of https://github.com/wemstar/IMN
+
+Conflicts:
+	lab3/Macura_03.gpl
+	lab3/Macura_03.py
+#
+# It looks like you may be committing a MERGE.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+#
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Sylwester Macura <i1macura@stud204.ftj.agh.edu.pl>
+#
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 8 different commit(s) each, respectively.
+#
+# Changes to be committed:
+#
+#	new file:   lab3/lab_03.pdf
+#	new file:   lab3/lab_03_wskazowka.pdf
+#	new file:   lab3/lab_03_wyniki2.pdf
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.idea/workspace.xml
+#	lab1/1a.jpg
+#	lab1/1b.jpg
+#	lab1/1c.jpg
+#	lab1/1d.jpg
+#	lab1/2a.jpg
+#	lab1/2b.jpg
+#	lab1/2c.jpg
+#	lab1/2d.jpg
+#	lab1/3a.jpg
+#	lab1/3b.jpg
+#	lab1/4a.jpg
+#	lab1/4b.jpg
+#	lab1/4c.jpg
+#	lab1/5a.jpg
+#	lab1/5b.jpg
+#	lab1/RK2.txt
+#	lab1/RK2Opory.txt
+#	lab1/Zasieg.txt
+#	lab1/Zasieg2.txt
+#	lab1/Zasieg4.txt
+#	lab1/jawnaEualera1.txt
+#	lab1/lab01
+#	lab2/File1.txt
+#	lab2/File10.txt
+#	lab2/File11.txt
+#	lab2/File12.txt
+#	lab2/File13.txt
+#	lab2/File14.txt
+#	lab2/File15.txt
+#	lab2/File16.txt
+#	lab2/File17.txt
+#	lab2/File18.txt
+#	lab2/File19.txt
+#	lab2/File2.txt
+#	lab2/File3.txt
+#	lab2/File4.txt
+#	lab2/File5.txt
+#	lab2/File6.txt
+#	lab2/File7.txt
+#	lab2/File8.txt
+#	lab2/File9.txt
+#	lab2/Z01b.jpg
+#	lab2/Z01c.jpg
+#	lab2/Z01d.jpg
+#	lab2/Z02a.jpg
+#	lab2/Z02b.jpg
+#	lab2/Z02c.jpg
+#	lab2/Z02d.jpg
+#	lab2/Z02e.jpg
+#	lab2/Z03a.jpg
+#	lab2/Z03b.jpg
+#	lab2/Z03c.jpg
+#	lab2/Z03d.jpg
+#	lab2/Z03e.jpg
+#	lab2/Z03f.jpg
+#	lab2/Z04a.jpg
+#	lab2/Z04b.jpg
+#	lab2/Z04c.jpg
+#	lab2/Z05a.jpg
+#	lab2/Z06a.jpg
+#	lab2/Z07a.jpg
+#	lab2/Z08a.jpg
+#	lab2/Z08b.jpg
+#	lab3/Macura_03.tar
+#	lab3/Macura_03/
+#	lab3/Z01a.jpg
+#	lab3/Z01b.jpg
+#	lab3/Z01c.jpg
+#	lab3/Z01d.jpg
+#	lab3/Z02a.jpg
+#	lab3/Z02b.jpg
+#	lab3/Z02c.jpg
+#	lab3/Z02d.jpg
+#	lab3/Z02e.jpg
+#	lab3/Z02f.jpg
+#	lab3/Z02g.jpg
+#	lab3/Z03a.jpg
+#	lab3/Z03b.jpg
+#	lab3/Z03c.jpg
+#	lab3/Z03d.jpg
+#	lab3/Z03e.jpg
+#	lab3/Z03f.jpg
+#	lab3/Z03g.jpg
+#	lab3/Z03h.jpg
+#	lab3/Z03i.jpg
+#	lab3/Zadanie1a.txt
+#	lab3/Zadanie1b.txt
+#	lab3/Zadanie2.1.txt
+#	lab3/Zadanie2.2.txt
+#	lab3/Zadanie2.txt
+#	lab3/Zadanie3.1.txt
+#	lab3/Zadanie3.2.txt
+#	lab3/Zadanie3.3.txt

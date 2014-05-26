@@ -1,0 +1,86 @@
+set term jpeg
+#Zadanie 1
+set output 'Zad1a.jpeg'
+set xlabel 'r'
+set title 'Zad. 1) Relaksacja: ε=10 -5'
+plot 'Zadanie1.1.txt' u 1:2 w lp title 'numerycznie','' u 1:3 w l title 'analitycznie'
+
+
+set title 'Zad. 1) Relaksacja: ε=10 -8'
+set output 'Zad1c.jpeg'
+#plot 'Zadanie1.2.txt' u 1:2 w lp title 'numerycznie','' u 1:3 w l title 'analitycznie'
+
+set title 'Zad. 1) Relaksacja: ε=10 -13'
+set output 'Zad1e.jpeg'
+#plot 'Zadanie1.3.txt' u 1:2 w lp title 'numerycznie','' u 1:3 w l title 'analitycznie'
+set output 'Zad1f.jpeg'
+#plot 'Zadanie1.3.txt' u 1:4 w lp title 'Blad'
+
+#Zadanie 2
+
+set title 'Zad. 2) Metoda wstecz'
+set ylabel 'e(r)'
+set output 'Zad2a.jpeg'
+plot 'Zadanie2.1.txt' u 1:4 w lp title 'Blad'
+
+
+set output 'Zad2b.jpeg'
+plot 'Zadanie2.2.txt' u 1:4 w lp title 'Blad'
+
+
+set output 'Zad2c.jpeg'
+plot 'Zadanie2.3.txt' u 1:4 w lp title 'Blad'
+
+#Zadanie 3
+
+
+
+set title 'Zad. 3.1) Metoda w przod dr=0.1 f1=fan'
+set output 'Zad3a.jpeg'
+plot 'Zadanie3.1.txt' u 1:4 w lp title 'Blad'
+
+
+
+set title 'Zad. 3.2) Metoda w przod dr=0.01 f1=fan'
+set output 'Zad3b.jpeg'
+plot 'Zadanie3.2.txt' u 1:4 w lp title 'Blad'
+
+
+
+set title 'Zad. 3.3) Metoda w przod dr=0.1 f1=fnum'
+set output 'Zad3c.jpeg'
+plot 'Zadanie3.3.txt' u 1:4 w lp title 'Blad'
+
+#Zadanie 4
+
+set title 'Zad. 4.1) Metoda numerowa wstecz'
+set output 'Zad4a.jpeg'
+plot 'Zadanie4.1.txt' u 1:4 w lp title 'Blad'
+
+
+#Zadanie 5
+
+
+set title 'Zad. 5.1) Metoda numerowa w przod dr=0.1 f1=fan'
+set output 'Zad5a.jpeg'
+plot 'Zadanie5.1.txt' u 1:4 w lp title 'Blad'
+
+set title 'Zad. 5.1) Metoda numerowa w przod dr=0.01 f1=fan'
+set output 'Zad5b.jpeg'
+plot 'Zadanie5.2.txt' u 1:4 w lp title 'Blad'
+
+set title 'Zad. 5.1) Metoda numerowa w przod dr=0.1 f1=fnum'
+set output 'Zad5c.jpeg'
+plot 'Zadanie5.3.txt' u 1:4 w lp title 'Blad'
+
+
+set title 'Zad. 6) Metoda RK2 wstecz'
+#Zadanie 6
+set ylabel 'f(r)'
+set output 'Zad6a.jpeg'
+plot 'Zadanie6.txt' u 1:2 w p pt 7 title 'numerycznie','' u 1:4 w l title 'analitycznie'
+
+set ylabel 'e(r)'
+set output 'Zad6b.jpeg'
+plot 'Zadanie6.txt' u 1:5 w lp title 'Blad'
+
