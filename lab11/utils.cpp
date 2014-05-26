@@ -1,4 +1,5 @@
 #include "utils.hpp"
+
 void zeruj(double tablica[301][91])
 {
 	for(int i=0;i<301;i++)
@@ -7,7 +8,6 @@ void zeruj(double tablica[301][91])
 			tablica[i][j]=0.0;
 		}
 }
-
 void iteruj(double strumien[301][91],double wirowosc[301][91],int n,int m,bool tryb)
 {
 	for(int i=1;i<n-1;i++)
@@ -18,11 +18,11 @@ void iteruj(double strumien[301][91],double wirowosc[301][91],int n,int m,bool t
 				double pierwszy=(wirowosc[i+1][j]+wirowosc[i-1][j]+wirowosc[i][j+1]+wirowosc[i][j-1])/4.0 ;
 				double drugi=(strumien[i][j+1]-strumien[i][j-1])*(wirowosc[i+1][j]-wirowosc[i-1][j]);
 				double trzeci=(strumien[i+1][j]-strumien[i-1][j])*(wirowosc[i][j+1]-wirowosc[i][j-1]);
-				wirowosc[i][j]=pierwszy-(drugi+trzeci)/16.0;
+				wirowosc[i][j]=pierwszy-(drugi-trzeci)/16.0;
 
 
 
-				strumien[i][j]=(strumien[i+1][j]+strumien[i-1][j]+strumien[i][j+1]+strumien[i][j-1]-wirowosc[i][j]*0.00001)/4.0;
+				strumien[i][j]=(strumien[i+1][j]+strumien[i-1][j]+strumien[i][j+1]+strumien[i][j-1]-wirowosc[i][j]*(0.01*0.01))/4.0;
 			}
 		}
 }
@@ -36,7 +36,7 @@ double strum(double j,double Q)
 double wir(double j,double Q)
 {
 	double y=j*0.01;
-	return (2.0*y-0.9)*Q/2.0;
+	return (2.0*y-0.9)/2.0*Q;
 }
 double pred(double j,double Q)
 {
@@ -50,8 +50,6 @@ void predkoscU(double predkosc[91],double strumien[301][91],int m)
 	{
 		predkosc[j]=(strumien[100][j+1]-strumien[100][j-1])/(0.02);
 	}
-	predkosc[0]=0;
-	predkosc[90]=0;
 }
 void predkoscU(double predkosc[301][91],double strumien[301][91],int m)
 {
@@ -94,29 +92,24 @@ void generujWir(double strumien[301][91],double wirowosc[301][91],int n,int m)
 void metoda(double strumien[301][91],double wirowosc[301][91],int n,int m,bool tryb)
 {
 	int i=0;
-	for(i=0;i<1;i++)
+	for(i=0;i<200;i++)
 	{
-
 		
 		iteruj(strumien,wirowosc,n,m,tryb);
 		if(tryb)generujWir(strumien,wirowosc,n,m);
-
 	
 	}
-
-	 double error=1.0;
+	double error=1.0;
 	while (error > 0.0000001)
 	{
-
 		
-	 	double ps=strumien[150][45];
+		double ps=strumien[150][45];
 		double pw=wirowosc[150][45];
-		
-		iteruj(strumien,wirowosc,n,m,tryb);
 		if(tryb)generujWir(strumien,wirowosc,n,m);
-		
+		iteruj(strumien,wirowosc,n,m,tryb);
+		++i;
 		error=max(fabs(ps- strumien[150][45]),fabs(pw- wirowosc[150][45]));
-
 		
-	 }
+	}
+	cout << "Ilosc iteracji : " << i << endl;
 }
