@@ -1,0 +1,19 @@
+set term jpeg
+set pm3d map
+
+
+
+
+
+set out 'Zadanie1c.jpg'
+splot "Zadanie1.0.txt" u 1:2:3
+set out 'Zadanie1d.jpg'
+splot "Zadanie1.1.txt" u 1:2:3
+set out 'Zadanie1e.jpg'
+splot "Zadanie1.2.txt" u 1:2:3
+set out 'Zadanie1f.jpg'
+splot "Zadanie1.3.txt" u 1:2:3
+set out 'Zadanie1g.jpg'
+splot "Zadanie1.4.txt" u 1:2:3
+set out 'Zadanie1h.jpg'
+splot "Zadanie1.5.txt" u 1:2:3
