@@ -9,6 +9,8 @@ import zadanie3
 
 
 
+
+
 def main():
     zadanie1.zadanie1()
     zadanie2.zadanie2()
