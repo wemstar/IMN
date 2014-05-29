@@ -6,6 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <ignored mask="*.jpg" />
     <ignored mask="*.txt" />
+    <ignored mask="*.jpeg" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +15,21 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/IMN$lab02.coverage" NAME="lab02 Coverage Results" MODIFIED="1395004082964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab2" />
+    <SUITE FILE_PATH="coverage/IMN$test.coverage" NAME="test Coverage Results" MODIFIED="1397500893051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PRIR" />
+    <SUITE FILE_PATH="coverage/IMN$Unnamed.coverage" NAME="Lab08 Coverage Results" MODIFIED="1398984153580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab8" />
+    <SUITE FILE_PATH="coverage/IMN$Lab3.coverage" NAME="Lab3 Coverage Results" MODIFIED="1395586911678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab3" />
+    <SUITE FILE_PATH="coverage/IMN$lab12.coverage" NAME="lab12 Coverage Results" MODIFIED="1401405413060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab12" />
+    <SUITE FILE_PATH="coverage/IMN$lab3P3.coverage" NAME="lab3P3 Coverage Results" MODIFIED="1395586840749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab3" />
+    <SUITE FILE_PATH="coverage/IMN$Setup.coverage" NAME="Setup Coverage Results" MODIFIED="1398974808188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab8" />
+    <SUITE FILE_PATH="coverage/IMN$lab02.coverage" NAME="lab02 Coverage Results" MODIFIED="1395582057607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab2" />
+    <SUITE FILE_PATH="coverage/IMN$lab10.coverage" NAME="lab10 Coverage Results" MODIFIED="1400495623352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab10" />
+    <SUITE FILE_PATH="coverage/IMN$lab7Te.coverage" NAME="lab7Te Coverage Results" MODIFIED="1398671696601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/IMN$Lab08.coverage" NAME="Lab08 Coverage Results" MODIFIED="1399241988702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab8" />
+    <SUITE FILE_PATH="coverage/IMN$Lab06.coverage" NAME="Lab06 Coverage Results" MODIFIED="1397479409156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab6" />
+    <SUITE FILE_PATH="coverage/IMN$Lab04.coverage" NAME="Lab04 Coverage Results" MODIFIED="1396559417331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab4" />
+    <SUITE FILE_PATH="coverage/IMN$lab7.coverage" NAME="lab7 Coverage Results" MODIFIED="1398673917348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab7" />
+    <SUITE FILE_PATH="coverage/IMN$Lab5.coverage" NAME="Lab5 Coverage Results" MODIFIED="1396812486556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab5" />
+    <SUITE FILE_PATH="coverage/IMN$lab09.coverage" NAME="lab09 Coverage Results" MODIFIED="1399839802051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/lab9" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -27,21 +42,131 @@
     <favorites_list name="IMN" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Zadanie1g.jpg" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1g.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zadanie1h.jpg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1h.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zadanie1d.jpg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1d.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Macura_12.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Macura_12.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zadanie1c.jpg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1c.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zadanie1e.jpg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1e.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Zadanie1f.jpg" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab12/Zadanie1f.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Push.Settings">
+    <option name="myUpdateMethod" value="REBASE" />
+  </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="PoprawkaDla3" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lab2/lab02.py" />
-        <option value="$PROJECT_DIR$/lab2/lab02.p" />
+        <option value="$PROJECT_DIR$/lab5/constrant.py" />
+        <option value="$PROJECT_DIR$/lab5/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab5/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab5/Macura_05.gpl" />
+        <option value="$PROJECT_DIR$/lab5/zadanie3.py" />
+        <option value="$PROJECT_DIR$/lab5/Macura_05.py" />
+        <option value="$PROJECT_DIR$/lab6/relaksacji.py" />
+        <option value="$PROJECT_DIR$/lab6/zadanie3.py" />
+        <option value="$PROJECT_DIR$/lab6/Zadanie4.py" />
+        <option value="$PROJECT_DIR$/lab6/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab6/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab6/Zadanie5.py" />
+        <option value="$PROJECT_DIR$/lab6/zadanie4.py" />
+        <option value="$PROJECT_DIR$/lab6/Macura_06.py" />
+        <option value="$PROJECT_DIR$/lab6/zadanie5.py" />
+        <option value="$PROJECT_DIR$/lab6/Macura_06.gpl" />
+        <option value="$PROJECT_DIR$/lab6/zadanie6.py" />
+        <option value="$PROJECT_DIR$/lab3/Macura_03.py" />
+        <option value="$PROJECT_DIR$/../PRIR/test.py" />
+        <option value="$PROJECT_DIR$/lab7/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab7/Macura_07.gpl" />
+        <option value="$PROJECT_DIR$/lab7/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab7/Macura_07.py" />
+        <option value="$PROJECT_DIR$/lab7/Zadanie1.2.txt" />
+        <option value="$PROJECT_DIR$/lab8/metods.pyx" />
+        <option value="$PROJECT_DIR$/lab8/setup.py" />
+        <option value="$PROJECT_DIR$/lab8/Macura_08.py" />
+        <option value="$PROJECT_DIR$/lab8/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab8/Macura_08.gpl" />
+        <option value="$PROJECT_DIR$/lab8/zadanie3.py" />
+        <option value="$PROJECT_DIR$/lab9/Macura_08.gpl" />
+        <option value="$PROJECT_DIR$/lab8/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab9/Macura_09.gpl" />
+        <option value="$PROJECT_DIR$/lab9/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab9/Zadanie2.1.16.txt" />
+        <option value="$PROJECT_DIR$/lab9/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab9/utils.py" />
+        <option value="$PROJECT_DIR$/lab9/Macura_09.py" />
+        <option value="$PROJECT_DIR$/lab10/zadanie3.py" />
+        <option value="$PROJECT_DIR$/lab09/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab10/utils.py" />
+        <option value="$PROJECT_DIR$/lab10/Macura_10.py" />
+        <option value="$PROJECT_DIR$/lab10/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab10/Macura_10.gpl" />
+        <option value="$PROJECT_DIR$/lab10/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab12/zadanie3.py" />
+        <option value="$PROJECT_DIR$/lab12/zadanie2.py" />
+        <option value="$PROJECT_DIR$/lab12/Macura_12.gpl" />
+        <option value="$PROJECT_DIR$/lab12/zadanie1.py" />
+        <option value="$PROJECT_DIR$/lab12/utils.py" />
+        <option value="$PROJECT_DIR$/lab12/Macura_12.py" />
       </list>
     </option>
   </component>
@@ -57,14 +182,14 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -76,7 +201,52 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PRIR">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="IMN">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="IMN">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="IMN">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="IMN">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT=".idea">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -94,10 +264,6 @@
               <option name="myItemId" value="IMN" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -106,6 +272,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="IMN" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lab12" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -117,17 +287,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Ignored.Files" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab12/Macura_12.py" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.lab02">
+  <component name="RunManager" selected="Python.lab12">
     <configuration default="false" name="lab02" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -231,9 +404,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -255,6 +425,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -297,8 +470,246 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.lab02" />
+    <configuration default="false" name="Lab3" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab3" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab3/Macura_03.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lab3P3" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab3" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab3/Macura_03.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Lab04" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab4" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab4/Macura_04.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Lab5" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab5" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab5/Macura_05.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Lab06" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab6" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab6/Macura_06.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lab7Te" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab7" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab7/Macura_07.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Lab08" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab8" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab8/Macura_08.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Setup" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab8" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab8/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lab09" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab9" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab9/Macura_09.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lab10" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab10" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab10/Macura_10.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lab12" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lab12" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="IMN" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab12/Macura_12.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <list size="12">
+      <item index="0" class="java.lang.String" itemvalue="Python.Lab3" />
+      <item index="1" class="java.lang.String" itemvalue="Python.lab3P3" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Lab04" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Lab5" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Lab06" />
+      <item index="5" class="java.lang.String" itemvalue="Python.lab7Te" />
+      <item index="6" class="java.lang.String" itemvalue="Python.Lab08" />
+      <item index="7" class="java.lang.String" itemvalue="Python.Setup" />
+      <item index="8" class="java.lang.String" itemvalue="Python.lab09" />
+      <item index="9" class="java.lang.String" itemvalue="Python.lab10" />
+      <item index="10" class="java.lang.String" itemvalue="Python.lab12" />
+      <item index="11" class="java.lang.String" itemvalue="Python.lab02" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -328,7 +739,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="0487a83c-f8bb-4ff0-82d1-0026ca5b8728" name="Default" comment="" />
       <created>1394475885278</created>
-      <updated>1394475885278</updated>
+      <updated>1395582052679</updated>
     </task>
     <task id="LOCAL-00001" summary="Ukończono zadanie4">
       <created>1394574795624</created>
@@ -350,33 +761,257 @@
       <created>1395089745789</created>
       <updated>1395089745789</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Stub dla laboratorium 3">
+      <created>1395089900377</created>
+      <updated>1395089900377</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Laboratorium 3">
+      <created>1395089935094</created>
+      <updated>1395582052534</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Połowa zadania 1">
+      <created>1395175311409</created>
+      <updated>1395175311409</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Połowa zadania 2">
+      <created>1395445991739</created>
+      <updated>1395445991739</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Ukończono zadanie 1">
+      <created>1395446881034</created>
+      <updated>1395446881034</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Ukończono zadanie 2">
+      <created>1395450573659</created>
+      <updated>1395450573659</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ukończono zadanie 3">
+      <created>1395496683709</created>
+      <updated>1395496683709</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Ukończono zadanie 3 i laboratorium">
+      <created>1395580839475</created>
+      <updated>1395580839475</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Poprawka do skyptru gnuplota">
+      <created>1395582094293</created>
+      <updated>1395582094293</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Dodano porawki związanie z pythonem 2">
+      <created>1395586937607</created>
+      <updated>1395586937607</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Ukończone zadanie 4">
+      <created>1395697312292</created>
+      <updated>1395697312292</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Działająca druga część zadania 3">
+      <created>1395957370756</created>
+      <updated>1395957370756</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Poprawka do pierwszej części zadania 3">
+      <created>1395957498395</created>
+      <updated>1395957498395</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Poprawka do pierwszej części zadania 3">
+      <created>1396208159734</created>
+      <updated>1396208159734</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Jużmam tego dość&#10;">
+      <created>1396214364280</created>
+      <updated>1396214364280</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Ukończone zadanie 1 i 2">
+      <created>1396670228528</created>
+      <updated>1396670228528</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Ukończone zadanie 3 w połowie&#10;">
+      <created>1396701775848</created>
+      <updated>1396701775848</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Ukończone zadanie 3 &#10;">
+      <created>1396703197488</created>
+      <updated>1396703197488</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Ukończone zadanie 3 &#10;">
+      <created>1396811596841</created>
+      <updated>1396811596841</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Cześciowe zadanie 6&#10;">
+      <created>1397426563514</created>
+      <updated>1397426563514</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Cześciowe zadanie 6&#10;">
+      <created>1397462616805</created>
+      <updated>1397462616805</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Cześciowe zadanie 6.5&#10;">
+      <created>1397464084189</created>
+      <updated>1397464084189</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Cześciowe zadanie 6.5&#10;">
+      <created>1397479423453</created>
+      <updated>1397479423453</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Cześciowe zadanie 6.5&#10;">
+      <created>1397480350821</created>
+      <updated>1397480350821</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Ukończone laboratorium 7">
+      <created>1398632668674</created>
+      <updated>1398632668674</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Ukończone laboratorium 7">
+      <created>1398634255851</created>
+      <updated>1398634255851</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Ukończone laboratorium 7">
+      <created>1398672082900</created>
+      <updated>1398672082900</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Zadanie 1">
+      <created>1398974831943</created>
+      <updated>1398974831943</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Zadanie 1 Ukończone">
+      <created>1399236635087</created>
+      <updated>1399236635087</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Poprawka konwersji">
+      <created>1399237085419</created>
+      <updated>1399237085419</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Poprawka konwersji">
+      <created>1399240140901</created>
+      <updated>1399240140901</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Poprawka pętli">
+      <created>1399240319023</created>
+      <updated>1399240319023</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Poprawka pętli">
+      <created>1399242326460</created>
+      <updated>1399242326460</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Początek zadania 9">
+      <created>1399498698360</created>
+      <updated>1399498698360</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Zadanie 9 przygotowana klasa utilslsowa">
+      <created>1399585330289</created>
+      <updated>1399585330289</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Potrzebne drobne poprawki do zadania 2">
+      <created>1399587669658</created>
+      <updated>1399587669658</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Lepsze plotowanie">
+      <created>1399587756438</created>
+      <updated>1399587756438</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Lepsze plotowanie">
+      <created>1399667492674</created>
+      <updated>1399667492674</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Zmieniono typ pętli">
+      <created>1399840016975</created>
+      <updated>1399840016975</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Zmieniono typ pętli">
+      <created>1399840290758</created>
+      <updated>1399840290758</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Zmiana organizacji katalogów">
+      <created>1399930540170</created>
+      <updated>1399930540170</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Szblon do laboratorium 10">
+      <created>1399930751591</created>
+      <updated>1399930751591</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Ukończone 1.&#10;Drugie nie wiem jak zrobić">
+      <created>1400448757532</created>
+      <updated>1400448757532</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Ukończone 1.&#10;Drugie nie wiem jak zrobić">
+      <created>1400496836455</created>
+      <updated>1400496836455</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Początek zadanie 1">
+      <created>1401405435210</created>
+      <updated>1401405435210</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
+    <option name="clearContext" value="false" />
+    <option name="createBranch" value="false" />
+    <option name="closeIssue" value="false" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="1604" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32628798" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23136246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43830335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3960265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33245033" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33245033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32496697" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3178808" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32628798" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847682" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3976222" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3989432" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21242866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760897" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -390,28 +1025,204 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Ukończono zadanie4" />
-    <MESSAGE value="Dodano laboratorium 1" />
-    <MESSAGE value="Ukończone laboratorium 2&#10;" />
-    <MESSAGE value="Dodano poprawki&#10;&#10;" />
-    <MESSAGE value="Ukończone laboratorium 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ukończone laboratorium 2" />
+    <MESSAGE value="Poprawka do skyptru gnuplota" />
+    <MESSAGE value="Dodano porawki związanie z pythonem 2" />
+    <MESSAGE value="Ukończone zadanie 4" />
+    <MESSAGE value="Działająca druga część zadania 3" />
+    <MESSAGE value="Poprawka do pierwszej części zadania 3" />
+    <MESSAGE value="Jużmam tego dość&#10;" />
+    <MESSAGE value="Ukończone zadanie 1 i 2" />
+    <MESSAGE value="Ukończone zadanie 3 w połowie&#10;" />
+    <MESSAGE value="Ukończone zadanie 3 &#10;" />
+    <MESSAGE value="Cześciowe zadanie 6&#10;" />
+    <MESSAGE value="Cześciowe zadanie 6.5&#10;" />
+    <MESSAGE value="Ukończone laboratorium 7" />
+    <MESSAGE value="Zadanie 1" />
+    <MESSAGE value="Zadanie 1 Ukończone" />
+    <MESSAGE value="Poprawka konwersji" />
+    <MESSAGE value="Poprawka pętli" />
+    <MESSAGE value="Początek zadania 9" />
+    <MESSAGE value="Zadanie 9 przygotowana klasa utilslsowa" />
+    <MESSAGE value="Potrzebne drobne poprawki do zadania 2" />
+    <MESSAGE value="Lepsze plotowanie" />
+    <MESSAGE value="Zmieniono typ pętli" />
+    <MESSAGE value="Zmiana organizacji katalogów" />
+    <MESSAGE value="Szblon do laboratorium 10" />
+    <MESSAGE value="Ukończone 1.&#10;Drugie nie wiem jak zrobić" />
+    <MESSAGE value="Początek zadanie 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Początek zadanie 1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="58" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lab1/lab01.gpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6740576" vertical-offset="755" max-vertical-offset="1206" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1g.jpg">
+      <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab2/__init__.py">
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1h.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1d.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1e.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1f.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zadanie2.1.16.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="477" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1728" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zadanie2.1.1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="301968" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zadanie1.1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="301968" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad1b.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zadanie1.2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="101502" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad1a.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2c.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2d.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2e.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2f.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2b.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab09/Zad2a.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zadanie1.1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-23.473234" vertical-offset="10962" max-vertical-offset="355824" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zadanie1.2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="461" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/zad1.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zad1b.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zadanie2.2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4000" column="0" selection-start="206890" selection-end="206890" vertical-scroll-proportion="0.0" vertical-offset="72000" max-vertical-offset="90126" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zadanie2.1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.7013699" vertical-offset="1242" max-vertical-offset="355824" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zad2b.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zad2a.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab10/Zad1a.jpeg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1h.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Macura_12.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1c.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1d.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1e.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1f.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab12/Zadanie1g.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
