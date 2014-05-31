@@ -12,7 +12,7 @@ import zadanie3
 
 
 def main():
-    # zadanie1.zadanie1()
+    zadanie1.zadanie1()
     zadanie2.zadanie2()
     zadanie3.zadanie3()
     subprocess.call(["gnuplot", "Macura_12.gpl"])
