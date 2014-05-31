@@ -30,15 +30,13 @@ def IX(matrix):
     (m,n)=matrix.shape
     for i in range(m):
         sum+=np.sum(i*matrix[i,:])
-    return sum/I(matrix)
+    return sum/I(matrix)*0.00001
 
-def leapfrog(U, V):
+def leapfrog(U, V,IC,IXC):
     dt = 0.01 / (4.0 * np.amax(np.sqrt(U ** 2 + V ** 2)))
     ro0 = roMatrix(np.zeros([301, 91]))
     ro1 = ro2Matrix(np.zeros([301, 91]), U, V, dt)
     ro2 =np.zeros([301,91])
-    IC=[]
-    IXC=[]
     i=0
     t=0.0
     while t < 100.0:
@@ -53,7 +51,7 @@ def leapfrog(U, V):
                  (U[300,1:-1]*(ro1[0,1:-1]-ro1[299,1:-1])/0.01+
                   V[300,1:-1]*(ro1[300,2:]-ro1[300,:-2])/0.01)
         IC.append(I(ro2))
-        #IXC.append(IX(ro2))
+        IXC.append(IX(ro2))
         if(i%800 == 0):
             yield  ro2
 
@@ -64,8 +62,9 @@ def leapfrog(U, V):
 
 def saveMatrix(file,matrix):
     (m,n)=matrix.shape
-    for i in range(m):
-        for j in range(n):
-            file.write("{0:0.20f} {1:0.20f} {2:0.20f}\n".format(i*0.01,j*0.01,matrix[i][j]))
-        file.write("\n")
+    with open(file,"w") as fp:
+        for i in range(m):
+            for j in range(n):
+                fp.write("{0:0.20f} {1:0.20f} {2:0.20f}\n".format(i*0.01,j*0.01,matrix[i][j]))
+            fp.write("\n")
 

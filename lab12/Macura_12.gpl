@@ -1,9 +1,18 @@
+
+
+
+
 set term jpeg
+
+set out 'Zadanie1a.jpeg'
+plot 'Zadanie1.I.txt' u 1:2
+set out 'Zadanie1b.jpeg'
+plot 'Zadanie1.IX.txt' u 1:2
+set out 'Zadanie2a.jpg'
+plot "Zadanie2.I.txt" u 1:2
+set out 'Zadanie2b.jpg'
+plot "Zadanie2.IX.txt" u 1:2
 set pm3d map
-
-
-
-
 
 set out 'Zadanie1c.jpg'
 splot "Zadanie1.0.txt" u 1:2:3
@@ -17,3 +26,26 @@ set out 'Zadanie1g.jpg'
 splot "Zadanie1.4.txt" u 1:2:3
 set out 'Zadanie1h.jpg'
 splot "Zadanie1.5.txt" u 1:2:3
+
+set out 'Zadanie1c.jpg'
+splot "Zadanie2.0.txt" u 1:2:3
+set out 'Zadanie2d.jpg'
+splot "Zadanie2.1.txt" u 1:2:3
+set out 'Zadanie2e.jpg'
+splot "Zadanie2.2.txt" u 1:2:3
+set out 'Zadanie2f.jpg'
+splot "Zadanie2.3.txt" u 1:2:3
+set out 'Zadanie2g.jpg'
+splot "Zadanie2.4.txt" u 1:2:3
+set out 'Zadanie2h.jpg'
+splot "Zadanie2.5.txt" u 1:2:3
+set out 'Zadanie2i.jpg'
+splot "Zadanie2.6.txt" u 1:2:3
+set out 'Zadanie2j.jpg'
+splot "Zadanie2.7.txt" u 1:2:3
+set out 'Zadanie2k.jpg'
+splot "Zadanie2.8.txt" u 1:2:3
+
+
+
+
