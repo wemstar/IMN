@@ -24,13 +24,13 @@ def ro2Matrix(matrix, u, v, dt):
             matrix[i][j] = ro(i * 0.01 - u[i][j] * dt, j * 0.01 - v[i][j] * dt)
     return matrix
 def I(matrix):
-    return np.sum(matrix)*0.0001
+    return np.sum(matrix*0.0001)
 def IX(matrix):
-    sum=0
+    sum=0.0
     (m,n)=matrix.shape
     for i in range(m):
-        sum+=np.sum(i*matrix[i,:])
-    return sum/I(matrix)*0.00001
+        sum+=np.sum(matrix[i,:])*i
+    return sum/I(matrix)*0.000001
 
 def leapfrog(U, V,IC,IXC):
     dt = 0.01 / (4.0 * np.amax(np.sqrt(U ** 2 + V ** 2)))
@@ -59,7 +59,7 @@ def leapfrog(U, V,IC,IXC):
         ro1=np.copy(ro2)
         i+=1
         t+=dt
-def LaxFriedrichs(U, V,IC,IXC):
+def LaxFriedrichs(U, V):
     dt = 0.01 / (8.0 * np.amax(np.sqrt(U ** 2 + V ** 2)))
     ro0 = roMatrix(np.zeros([301, 91]))
     ro1 =np.zeros([301,91])
@@ -86,12 +86,13 @@ def iterateMatrix(ro0,U,V,starti,endi,startj,endj,dt):
     second=U[starti:endi,startj:endj]*(ro0[starti+1:endi+1,startj:endj]-ro0[starti-1:endi-1,startj:endj])/0.02
     third=V[starti:endi,startj:endj]*(ro0[starti:endi,startj+1:endj+1]-ro0[starti:endi,startj-1:endj-1])/0.02
     return first-dt*(second+third)
-def saveMatrix(file,matrix):
+def saveMatrix(file,matrix,tryb = False):
     (m,n)=matrix.shape
     with open(file,"w") as fp:
         for i in range(m):
             for j in range(n):
-                fp.write("{0:0.20f} {1:0.20f} {2:0.20f}\n".format(i*0.01,j*0.01,matrix[i][j]))
+                if not (tryb and i>90 and i<101 and j > 50):
+                    fp.write("{0:0.20f} {1:0.20f} {2:0.20f}\n".format(i*0.01,j*0.01,abs(matrix[i][j])))
             fp.write("\n")
 def readFromFile(U, V):
     i = 0

@@ -10,7 +10,7 @@ def zadanie2():
     mI = []
     mIX = []
     for x, ro in enumerate(leapfrog(U, V, mI, mIX)):
-        saveMatrix("Zadanie2.{0}.txt".format(x), ro)
+        saveMatrix("Zadanie2.{0}.txt".format(x), ro,True)
     with open("Zadanie2.I.txt", "w") as fp1:
         with open("Zadanie2.IX.txt", "w") as fp2:
             for i, (a, b) in enumerate(zip(mI, mIX)):
