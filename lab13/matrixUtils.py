@@ -30,9 +30,11 @@ def recreateGrid(grid):
     grid[i2,j1]=grid[i2-1,j1-1]/(sqrt(2.0)*h+1)#E\D
     grid[i1,j2]=grid[i1+1,j2+1]/(sqrt(2.0)*h+1)
     grid[i1,jmin]=grid[i1+1,jmin+1]/(sqrt(2.0)*h+1)
+def computeGird(grid,pgrid,i1,i2,j1,j2):
+    pass
 def iterateGrid(grid,pgrid):
     error=1.0
     while error > 0.0000001:
-        grid[1:-1,1:-1]=pgrid[1:-1:1:-1]
+        pass
 
 
