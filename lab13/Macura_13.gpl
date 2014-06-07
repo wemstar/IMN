@@ -1,11 +1,20 @@
 set terminal jpeg
 
-
+set out 'Zadanie1a.jpg'
+plot 'Zadanie1.S.txt' u 1:2
+set out 'Zadanie1b.jpg'
+plot 'Zadanie1.S.txt' u 1:3
 
 set pm3d map
 
-set out 'Zadanie1a.jpg'
+set out 'Zadanie1c.jpg'
 splot "Zadanie1.1.txt" u 1:2:3
 
-set out 'Zadanie1b.jpg'
+set out 'Zadanie1d.jpg'
 splot "Zadanie1.2.txt" u 1:2:3
+
+set out 'Zadanie2a.jpg'
+splot "Zadanie2.1.txt" u 1:2:3
+
+set out 'Zadanie2b.jpg'
+splot "Zadanie2.2.txt" u 1:2:3
