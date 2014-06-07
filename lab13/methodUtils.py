@@ -22,19 +22,19 @@ def method(grid, h):
     t=0.0
     streqm1=[]
     stream2=[]
-    while error >0.000003:
-    # for t in range(300):
+    while error >0.00000004:
         iterateGrid(grid, pgrid, h)
         error=abs(computeError(grid)-computeError(pgrid))
         pgrid = np.copy(grid)
         t+=1
         streqm1.append(stream(grid,imin+1,j2,jmax))
         stream2.append(stream(grid,imax-1,jmin,j1))
+        print(error)
     return streqm1,stream2
 
 
 def computeError(grid):
-    return np.sum(grid)
+    return np.sum(np.absolute(grid))
 
 def stream(grid,i,j1,j2):
     return np.sum(grid[i,j1:j2])
