@@ -1,0 +1,11 @@
+set terminal jpeg
+
+
+
+set pm3d map
+
+set out 'Zadanie1a.jpg'
+splot "Zadanie1.1.txt" u 1:2:3
+
+set out 'Zadanie1b.jpg'
+splot "Zadanie1.2.txt" u 1:2:3
