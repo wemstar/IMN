@@ -16,7 +16,7 @@ def iterateGrid(grid, pgrid, h):
         error = abs(error1 - error2)
 
 
-def method(grid, h):
+def method(grid, h,filenameBase,stops):
     pgrid = np.copy(grid)
     error = 1.0
     t = 0.0
@@ -27,9 +27,10 @@ def method(grid, h):
         error = abs(computeError(grid) - computeError(pgrid))
         pgrid = np.copy(grid)
         t += 1
-        streqm1.append(stream(grid, imin + 1, j2, jmax))
-        stream2.append(stream(grid, imax - 1, jmin, j1))
-        print("{0} {1}".format(t, error))
+        streqm1.append(stream(grid, imin + 1, j2, jmax,1))
+        stream2.append(stream(grid, imax - 1, jmin, j1,-1))
+        if t in stops:
+            saveGrid("{0}{1}.txt".format(filenameBase,t),grid)
     return streqm1, stream2
 
 
@@ -37,5 +38,5 @@ def computeError(grid):
     return np.sum(np.absolute(grid))
 
 
-def stream(grid, i, j1, j2):
-    return np.sum(grid[i, j1:j2])
+def stream(grid, i, j1, j2,dt):
+    return np.sum((grid[i, j1:j2]-grid[i+dt, j1:j2])/2.0)
