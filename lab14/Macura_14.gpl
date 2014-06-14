@@ -1,0 +1,35 @@
+set terminal jpeg
+set out 'Zadanie1a.jpg'
+plot 'Zadanie1.0.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1b.jpg'
+plot 'Zadanie1.2.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1c.jpg'
+plot 'Zadanie1.3.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1d.jpg'
+plot 'Zadanie1.4.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1e.jpg'
+plot 'Zadanie1.5.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1f.jpg'
+plot 'Zadanie1.6.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1g.jpg'
+plot 'Zadanie1.7.txt' u 1:2 , '' u 1:3
+set out 'Zadanie1h.jpg'
+plot 'Zadanie1.8.txt' u 1:2 , '' u 1:3
+
+
+
+set pm3d map
+set palette defined (-1.0 "blue", 0.0 "white", 1.0 "red")
+set cbrange [-1:1]
+set xrange [0:4]
+set out 'Zadanie2a.jpg'
+splot "Zadanie2a.txt" u 1:2:3
+set out 'Zadanie2b.jpg'
+splot "Zadanie2b.txt" u 1:2:3
+
+set out 'Zadanie3a.jpg'
+splot "Zadanie3.0.2.txt" u 1:2:3
+set out 'Zadanie3b.jpg'
+splot "Zadanie3.1.0.txt" u 1:2:3
+set out 'Zadanie3c.jpg'
+splot "Zadanie3.3.0.txt" u 1:2:3
