@@ -1,21 +1,13 @@
 from math import sin, pi, cos
-
+import utils
 __author__ = 'wemstar'
 
 import numpy as np
 
 
-def initial(v, u, a):
-    v[0] = 0
-    v[-1] = 0
-    u[0] = 0
-    u[-1] = 0
-    a[0] = 0
-    a[-1] = 0
-
 
 def cykl(v, u, a, dt, dx):
-    initial(v, u, a)
+    utils.initial(v, u, a)
     v[:] = v[:] + dt / 2.0 * a[:]
     u[:] = u[:] + dt * v[:]
     a[1:-1] = (u[2:] + u[:-2] - 2.0 * u[1:-1]) / (dx ** 2.0)
