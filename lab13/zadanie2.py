@@ -6,5 +6,5 @@ def zadanie2():
     grid=generateGrid()
     recreateGrid(grid,0.03)
     saveGrid("Zadanie2.1.txt",grid)
-    method(grid,0.03,"Zadanie2.",[50,100,300,400,500])
+    method(grid,0.03,"Zadanie2.",[1,5,9,13,30])
     saveGrid("Zadanie2.2.txt",grid)

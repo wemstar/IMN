@@ -5,6 +5,8 @@ import numpy as np
 
 def iterateGrid(grid, pgrid, h):
     error = 1.0
+    streqm1 = []
+    stream2 = []
     while error > 0.000000001:
         # for z in range(200):
         recreateGrid(grid, h)
@@ -14,6 +16,9 @@ def iterateGrid(grid, pgrid, h):
         computeGird(grid, pgrid, i2, imax, jmin + 1, j1)
         error2 = computeError(grid)
         error = abs(error1 - error2)
+        streqm1.append(stream(grid, imin + 1, j2, jmax,1))
+        stream2.append(stream(grid, imax - 1, jmin, j1,-1))
+    return streqm1,stream2
 
 
 def method(grid, h,filenameBase,stops):
@@ -23,12 +28,12 @@ def method(grid, h,filenameBase,stops):
     streqm1 = []
     stream2 = []
     while error > 0.000000001:
-        iterateGrid(grid, pgrid, h)
+        s1,s2=iterateGrid(grid, pgrid, h)
         error = abs(computeError(grid) - computeError(pgrid))
         pgrid = np.copy(grid)
         t += 1
-        streqm1.append(stream(grid, imin + 1, j2, jmax,1))
-        stream2.append(stream(grid, imax - 1, jmin, j1,-1))
+        streqm1.extend(s1)
+        stream2.extend(s2)
         if t in stops:
             saveGrid("{0}{1}.txt".format(filenameBase,t),grid)
     return streqm1, stream2
@@ -39,4 +44,4 @@ def computeError(grid):
 
 
 def stream(grid, i, j1, j2,dt):
-    return np.sum((grid[i, j1:j2]-grid[i+dt, j1:j2])/2.0)
+    return dt*np.sum((grid[i-dt, j1:j2]-grid[i+dt, j1:j2])/2.0)

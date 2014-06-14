@@ -29,10 +29,10 @@ def recreateGrid(grid, h):
     grid[i1:imax, jmin] = grid[i1:imax, jmin + 1] / (h + 1)  # C
     grid[i2:imax, j1] = grid[i2:imax, j1 - 1] / (h + 1)  # D
     grid[imin:i2, jmax] = grid[imin:i2, jmax - 1] / (h + 1)  # F
-    # grid[i2, jmax] = grid[i2 - 1, jmax - 1] / (sqrt(2.0) * h + 1)  # F\E
-    # grid[i2, j1] = grid[i2 - 1, j1 - 1] / (sqrt(2.0) * h + 1)  # E\D
-    # grid[i1, j2] = grid[i1 + 1, j2 + 1] / (sqrt(2.0) * h + 1)
-    # grid[i1, jmin] = grid[i1 + 1, jmin + 1] / (sqrt(2.0) * h + 1)
+    grid[i2, jmax] = grid[i2 - 1, jmax - 1] / (sqrt(2.0) * h + 1)  # F\E
+    grid[i2, j1] = grid[i2 - 1, j1 - 1] / (sqrt(2.0) * h + 1)  # E\D
+    grid[i1, j2] = grid[i1 + 1, j2 + 1] / (sqrt(2.0) * h + 1)
+    grid[i1, jmin] = grid[i1 + 1, jmin + 1] / (sqrt(2.0) * h + 1)
 
 
 # def computeGird(grid, pgrid, i1, i2, j1, j2):
