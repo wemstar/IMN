@@ -37,3 +37,22 @@ def methodGrid(cykl,u,endT=4.0):
         t += dt
         wynik.append(np.copy(u))
     return wynik
+
+
+def obliczSume(v, u):
+    return np.sum(v[1:]**2.0+(u[1:]-u[:-1])/100.0)*0.005
+
+
+def method5(cykl,u,endT=4.0):
+    v = np.zeros(101)
+    a = np.zeros(101)
+
+
+    t = 0.0
+    dt = 1.0 / 200.0
+    wynik=[obliczSume(v,u)]
+    while t < endT:
+        cykl(v, u, a,t, dt, 0.01)
+        t += dt
+        wynik.append(obliczSume(v,u))
+    return np.sum(wynik)
